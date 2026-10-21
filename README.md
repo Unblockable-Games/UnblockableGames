@@ -1,8 +1,22 @@
-<!-- ============================================================ -->
-<!-- 1. CSS — paste this into your <style> block                 -->
-<!-- ============================================================ -->
+<!-- ===== SITE DOWNLOAD BUTTON (single block) ===== -->
+<div class="site-download-wrap">
+  <a
+    class="site-download-btn"
+    href="https://drive.google.com/uc?export=download&id=1CsIpG7n8gmkVnU6_qPC17Q9rupecPKrq"
+    download
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <span class="btn-icon">📥</span>
+    <span class="btn-text">
+      <span class="main">Download This Site</span>
+      <span class="sub">Offline · No setup · Just open</span>
+    </span>
+    <span class="arrow">→</span>
+  </a>
+</div>
+
 <style>
-/* ============ SITE DOWNLOAD BUTTON ============ */
 .site-download-wrap {
   margin-top: 1.5rem;
   display: flex;
@@ -153,35 +167,4 @@
   .site-download-btn .btn-icon { width: 28px; height: 28px; font-size: 0.9rem; }
 }
 </style>
-
-
-<!-- ============================================================ -->
-<!-- 2. HTML — replace your entire <div class="hero"> ... </div>   -->
-<!-- ============================================================ -->
-<div class="hero">
-  <button class="theme-toggle-top" id="themeToggle" onclick="toggleTheme()">🌙 Dark</button>
-  <h1 class="glow-text">🎮 UNBLOCKABLE GAMES</h1>
-  <div class="sub">download · play offline · no internet needed</div>
-  <div class="stats-bar">
-    <i class="fas fa-database"></i> <span id="gameCountDisplay">0</span> games available
-    <i class="fas fa-download" style="margin-left: 8px;"></i> <span>download & run</span>
-  </div>
-
-  <!-- Site download button -->
-  <div class="site-download-wrap">
-    <a
-      class="site-download-btn"
-      href="https://drive.google.com/uc?export=download&id=1CsIpG7n8gmkVnU6_qPC17Q9rupecPKrq"
-      download
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span class="btn-icon">📥</span>
-      <span class="btn-text">
-        <span class="main">Download This Site</span>
-        <span class="sub">Offline · No setup · Just open</span>
-      </span>
-      <span class="arrow">→</span>
-    </a>
-  </div>
-</div>
+<!-- ===== END SITE DOWNLOAD BUTTON ===== -->

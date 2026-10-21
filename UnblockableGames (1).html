@@ -1,0 +1,2793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>🎮 Unblockable Games · Download & Play Locally</title>
+  <meta name="description" content="Download unblocked games and play them locally on your computer. No internet required after download.">
+  <meta name="author" content="The Gamerz">
+  <style>
+    /* ================================================================
+       THEME VARIABLES
+       ================================================================ */
+    :root {
+      --bg-1: #0a0f1e;
+      --bg-2: #0c1222;
+      --text: #f1f5f9;
+      --text-sub: #94a3b8;
+      --text-muted: #64748b;
+      --text-faint: #6c7a9e;
+      --panel: rgba(15, 23, 42, 0.75);
+      --panel-2: rgba(30, 41, 59, 0.5);
+      --panel-3: #0f172a;
+      --border: rgba(71, 85, 105, 0.5);
+      --border-soft: rgba(255,255,255,0.05);
+      --border-light: #334155;
+      --card-hover: rgba(30, 41, 59, 0.9);
+      --accent: #3b82f6;
+      --accent-2: #8b5cf6;
+      --accent-3: #2563eb;
+      --accent-4: #7c3aed;
+      --success-1: #22c55e;
+      --success-2: #16a34a;
+      --danger: #ef4444;
+      --danger-soft: rgba(239, 68, 68, 0.15);
+      --danger-border: rgba(239, 68, 68, 0.4);
+      --danger-hover: rgba(239, 68, 68, 0.3);
+      --glow: rgba(59,130,246,0.1);
+      --stat-bar-bg: rgba(15, 23, 42, 0.6);
+      --glow-text-shadow: rgba(59,130,246,0.3);
+      --eagle-bg: #0f1422;
+      --eagle-border: #2a4c7a;
+      --eagle-green: #4aff9e;
+      --eagle-green-dark: #1b5e20;
+      --eagle-green-mid: #2e7d32;
+      --eagle-blue: #88aacc;
+      --eagle-text: #bbccdd;
+      --eagle-footer: #556688;
+      --notice-bg: rgba(234, 179, 8, 0.12);
+      --notice-border: rgba(234, 179, 8, 0.3);
+      --notice-text: #fde047;
+      --storage-note-bg: rgba(59, 130, 246, 0.1);
+      --storage-note-border: rgba(59, 130, 246, 0.3);
+      --storage-note-text: #93c5fd;
+      --grid-line: rgba(71, 85, 105, 0.3);
+      --viewer-bg: #1a1a1a;
+      --scroll-track: #1e293b;
+    }
+
+    html.light {
+      --bg-1: #f0f4f8;
+      --bg-2: #e2e8f0;
+      --text: #0f172a;
+      --text-sub: #475569;
+      --text-muted: #64748b;
+      --text-faint: #94a3b8;
+      --panel: rgba(255, 255, 255, 0.9);
+      --panel-2: rgba(241, 245, 249, 0.8);
+      --panel-3: #ffffff;
+      --border: rgba(148, 163, 184, 0.5);
+      --border-soft: rgba(0,0,0,0.05);
+      --border-light: #cbd5e1;
+      --card-hover: rgba(241, 245, 249, 0.95);
+      --accent: #2563eb;
+      --accent-2: #7c3aed;
+      --accent-3: #1d4ed8;
+      --accent-4: #6d28d9;
+      --success-1: #16a34a;
+      --success-2: #15803d;
+      --danger: #dc2626;
+      --danger-soft: rgba(220, 38, 38, 0.1);
+      --danger-border: rgba(220, 38, 38, 0.3);
+      --danger-hover: rgba(220, 38, 38, 0.2);
+      --glow: rgba(59,130,246,0.08);
+      --stat-bar-bg: rgba(255, 255, 255, 0.7);
+      --glow-text-shadow: rgba(59,130,246,0.15);
+      --eagle-bg: #ffffff;
+      --eagle-border: #cbd5e1;
+      --eagle-green: #16a34a;
+      --eagle-green-dark: #15803d;
+      --eagle-green-mid: #15803d;
+      --eagle-blue: #475569;
+      --eagle-text: #334155;
+      --eagle-footer: #94a3b8;
+      --notice-bg: rgba(234, 179, 8, 0.15);
+      --notice-border: rgba(234, 179, 8, 0.4);
+      --notice-text: #92400e;
+      --storage-note-bg: rgba(59, 130, 246, 0.1);
+      --storage-note-border: rgba(59, 130, 246, 0.3);
+      --storage-note-text: #1e40af;
+      --grid-line: rgba(148, 163, 184, 0.3);
+      --viewer-bg: #f1f5f9;
+      --scroll-track: #e2e8f0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 100%);
+      font-family: 'Segoe UI', 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at 20% 40%, var(--glow), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      transition: background 0.25s;
+    }
+
+    .container { max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; }
+
+    .hero { text-align: center; margin-bottom: 2.5rem; position: relative; }
+
+    .glow-text {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #facc15, var(--accent), var(--accent-2));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+      text-shadow: 0 0 10px var(--glow-text-shadow);
+    }
+
+    .sub { color: var(--text-sub); margin-top: 0.5rem; font-size: 1rem; }
+
+    .stats-bar {
+      background: var(--stat-bar-bg);
+      backdrop-filter: blur(8px);
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem 1.5rem;
+      margin-top: 1rem;
+      border: 1px solid rgba(59,130,246,0.3);
+      font-size: 0.85rem;
+    }
+
+    .theme-toggle-top {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      backdrop-filter: blur(8px);
+    }
+
+    .theme-toggle-top:hover { background: var(--card-hover); border-color: var(--accent); }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0 2rem;
+      background: var(--panel-2);
+      backdrop-filter: blur(8px);
+      border-radius: 80px;
+      padding: 0.6rem 1.8rem;
+      border: 1px solid var(--border-soft);
+      transition: background 0.25s, border 0.25s;
+    }
+
+    .tab-buttons-inline { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+    .tab-btn {
+      background: var(--panel-3);
+      border: 1px solid var(--border);
+      color: var(--text-sub);
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .tab-btn:hover { background: rgba(59, 130, 246, 0.15); color: var(--text); }
+
+    .tab-btn.active {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 4px 15px -5px rgba(59,130,246,0.5);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .sub-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .sub-tab {
+      background: var(--panel-3);
+      border: 1px solid rgba(74, 255, 158, 0.3);
+      color: var(--text-sub);
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    .sub-tab:hover { background: rgba(74, 255, 158, 0.1); color: var(--eagle-green); }
+
+    .sub-tab.active {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 4px 15px -5px rgba(59,130,246,0.5);
+    }
+
+    .sub-content { display: none; }
+    .sub-content.active { display: block; }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--panel-3);
+      border-radius: 48px;
+      padding: 0.4rem 1.2rem;
+      gap: 10px;
+      border: 1px solid var(--border-light);
+      flex: 1;
+      max-width: 320px;
+      min-width: 200px;
+    }
+
+    .search-box i { color: var(--accent); }
+
+    .search-box input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+      width: 100%;
+    }
+
+    .search-box input::placeholder { color: var(--text-muted); }
+
+    .counter {
+      background: var(--panel-3);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .game-card {
+      background: var(--panel);
+      backdrop-filter: blur(4px);
+      border-radius: 1.8rem;
+      padding: 1.2rem;
+      transition: all 0.25s ease;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .game-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      background: var(--card-hover);
+      box-shadow: 0 20px 30px -15px rgba(0,0,0,0.5);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .game-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(145deg, var(--accent-3), var(--accent-4));
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 8px 12px -6px rgba(30, 27, 75, 0.8);
+      flex-shrink: 0;
+    }
+
+    .game-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      word-break: break-word;
+      line-height: 1.3;
+    }
+
+    .download-btn {
+      margin-top: auto;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border: none;
+      padding: 0.7rem 0;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+
+    .download-btn:hover { background: linear-gradient(90deg, var(--accent-3), var(--accent-4)); gap: 14px; }
+
+    .download-btn i { font-size: 0.9rem; }
+
+    .file-info {
+      margin-bottom: 1rem;
+      font-size: 0.75rem;
+      color: var(--text-sub);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .file-info .file-size {
+      background: rgba(59, 130, 246, 0.15);
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      color: var(--accent);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: rgba(0,0,0,0.1);
+      border-radius: 2rem;
+      grid-column: 1 / -1;
+    }
+
+    .notice-banner {
+      background: var(--notice-bg);
+      border: 1px solid var(--notice-border);
+      border-radius: 1rem;
+      padding: 0.8rem 1.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--notice-text);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .notice-banner i { font-size: 1.2rem; }
+
+    /* Eaglercraft embedded content styles */
+    .eagle-wrap { max-width: 1000px; margin: 0 auto; }
+
+    .eagle-home-text {
+      background: var(--eagle-bg);
+      border: 1px solid var(--eagle-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 35px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--eagle-text);
+    }
+
+    .eagle-home-text a { color: var(--eagle-green); text-decoration: none; }
+
+    .eagle-title { text-align: center; color: var(--eagle-green); font-size: 2rem; margin-bottom: 8px; }
+
+    .eagle-subtitle { text-align: center; color: var(--eagle-blue); font-size: 0.85rem; margin-bottom: 30px; }
+
+    .eagle-version-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .eagle-version-card {
+      background: var(--eagle-bg);
+      border: 1px solid var(--eagle-border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .eagle-version-card:hover { border-color: var(--eagle-green); transform: translateY(-3px); }
+
+    .eagle-version-icon { font-size: 2.5rem; margin-bottom: 10px; }
+
+    .eagle-version-name { font-size: 1.5rem; font-weight: bold; color: var(--text); margin-bottom: 8px; }
+
+    .eagle-version-desc { color: var(--eagle-blue); font-size: 0.75rem; margin-bottom: 15px; }
+
+    .eagle-download-btn {
+      display: inline-block;
+      background: var(--eagle-green-mid);
+      color: white;
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .eagle-download-btn:hover { background: var(--eagle-green-dark); transform: scale(1.02); }
+
+    .eagle-every-version-section, .eagle-launcher2-section, .eagle-launcher-download-section, .eagle-custom-download-section {
+      background: var(--eagle-bg);
+      border-radius: 16px;
+      padding: 25px;
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .eagle-every-version-section { border: 2px solid #ff9800; }
+    .eagle-launcher2-section, .eagle-launcher-download-section { border: 2px solid var(--eagle-green); }
+    .eagle-custom-download-section { border: 2px solid var(--eagle-green-mid); }
+
+    .eagle-every-version-section h3 { color: #ff9800; font-size: 1.3rem; margin-bottom: 10px; }
+
+    .eagle-every-version-section p, .eagle-launcher2-section p, .eagle-launcher-download-section p { color: var(--eagle-blue); margin-bottom: 20px; font-size: 0.85rem; }
+
+    .eagle-every-version-btn {
+      display: inline-block;
+      background-color: #ff9800;
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(255,152,0,0.3);
+      transition: transform 0.2s, background-color 0.2s;
+      font-size: 1rem;
+    }
+
+    .eagle-every-version-btn:hover { background-color: #e68900; transform: scale(1.05); }
+
+    .eagle-launcher2-section h3, .eagle-launcher-download-section h3 { color: var(--eagle-green); font-size: 1.3rem; margin-bottom: 10px; }
+
+    .eagle-launcher2-btn, .eagle-launcher-dl-btn {
+      display: inline-block;
+      background-color: var(--eagle-green-mid);
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s, background-color 0.2s;
+      font-size: 1rem;
+    }
+
+    .eagle-launcher2-btn:hover, .eagle-launcher-dl-btn:hover { background-color: var(--eagle-green-dark); transform: scale(1.05); }
+
+    .eagle-footer {
+      text-align: center;
+      color: var(--eagle-footer);
+      font-size: 0.7rem;
+      border-top: 1px solid var(--eagle-border);
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    .eagle-clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .eagle-client-card {
+      background: var(--eagle-bg);
+      border: 1px solid var(--eagle-border);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s;
+    }
+
+    .eagle-client-card:hover { border-color: var(--eagle-green); transform: translateY(-3px); }
+
+    .eagle-client-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .eagle-client-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(145deg, var(--eagle-green-mid), var(--eagle-green));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .eagle-client-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+      word-break: break-word;
+    }
+
+    .eagle-client-meta {
+      font-size: 0.72rem;
+      color: var(--eagle-blue);
+      margin-bottom: 12px;
+      font-family: monospace;
+      word-break: break-all;
+    }
+
+    .eagle-client-btn {
+      margin-top: auto;
+      background: linear-gradient(90deg, var(--eagle-green-mid), var(--eagle-green));
+      color: white;
+      border: none;
+      padding: 0.6rem 0;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+      font-family: inherit;
+      width: 100%;
+    }
+
+    .eagle-client-btn:hover { filter: brightness(1.15); gap: 12px; }
+
+    .download-all-section { margin: 2.5rem 0 1rem; text-align: center; }
+
+    .download-all-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(90deg, #ff9800, #ef4444);
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: 0 8px 20px -6px rgba(239,68,68,0.5);
+      transition: all 0.2s;
+    }
+
+    .download-all-btn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+    .download-all-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .download-all-note { margin-top: 0.8rem; font-size: 0.75rem; color: var(--eagle-footer); }
+
+    /* Downloads tab */
+    .downloads-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .downloads-header h2 {
+      font-size: 1.4rem;
+      background: linear-gradient(90deg, var(--success-1), var(--accent));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .refresh-btn {
+      background: var(--panel-2);
+      border: 1px solid var(--border-light);
+      color: var(--text);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .refresh-btn:hover { background: rgba(59, 130, 246, 0.2); border-color: var(--accent); }
+
+    .delete-btn {
+      background: var(--danger-soft);
+      border: 1px solid var(--danger-border);
+      color: var(--danger);
+      padding: 0.6rem 0.8rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      margin-top: auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .delete-btn:hover { background: var(--danger-hover); }
+
+    .open-btn {
+      margin-top: auto;
+      background: linear-gradient(90deg, var(--success-1), var(--success-2));
+      border: none;
+      padding: 0.7rem 0;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+
+    .open-btn:hover { background: linear-gradient(90deg, var(--success-2), #15803d); gap: 14px; }
+
+    .storage-note {
+      background: var(--storage-note-bg);
+      border: 1px solid var(--storage-note-border);
+      border-radius: 1rem;
+      padding: 0.8rem 1.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--storage-note-text);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Custom Files tab */
+    .upload-zone {
+      background: var(--panel);
+      border: 2px dashed var(--accent);
+      border-radius: 1.8rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+
+    .upload-zone:hover, .upload-zone.dragover {
+      background: rgba(59, 130, 246, 0.15);
+      border-color: var(--accent-2);
+      transform: translateY(-3px);
+    }
+
+    .upload-zone i { font-size: 3rem; color: var(--accent); margin-bottom: 1rem; }
+
+    .upload-zone h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text); }
+
+    .upload-zone p { color: var(--text-sub); font-size: 0.9rem; }
+
+    .upload-zone .hint { margin-top: 1rem; font-size: 0.75rem; color: var(--text-muted); }
+
+    .custom-file-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 1.8rem;
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s;
+    }
+
+    .custom-file-card:hover {
+      border-color: var(--accent);
+      background: var(--card-hover);
+      transform: translateY(-5px);
+    }
+
+    .file-preview {
+      width: 100%;
+      height: 140px;
+      border-radius: 1rem;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      background: var(--bg-1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--grid-line);
+    }
+
+    .file-preview img, .file-preview video {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .file-actions { display: flex; gap: 0.5rem; margin-top: auto; }
+
+    .file-actions .download-btn, .file-actions .open-btn, .file-actions .delete-btn {
+      flex: 1;
+      margin-top: 0;
+      padding: 0.6rem 0;
+      font-size: 0.8rem;
+    }
+
+    /* ============ CODE RUNNER ============ */
+    .runner-container {
+      display: flex;
+      flex-direction: column;
+      height: 70vh;
+      min-height: 500px;
+      background: var(--panel-3);
+      border: 1px solid var(--border);
+      border-radius: 1.8rem;
+      overflow: hidden;
+    }
+
+    .runner-titlebar {
+      background: var(--panel-2);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-sub);
+      flex-shrink: 0;
+    }
+
+    .runner-titlebar .app-name {
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .runner-titlebar .app-name .logo {
+      width: 18px; height: 18px;
+      background: var(--accent);
+      border-radius: 3px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .runner-titlebar .spacer { flex: 1; }
+
+    .runner-titlebar .status-pill {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent);
+      font-size: 11px;
+      padding: 2px 10px;
+      border-radius: 10px;
+      font-weight: 500;
+    }
+
+    .runner-tabs {
+      background: var(--panel-2);
+      border-bottom: 1px solid var(--border);
+      padding: 6px 10px 0 10px;
+      display: flex;
+      gap: 2px;
+      overflow-x: auto;
+      flex-shrink: 0;
+    }
+
+    .runner-tab {
+      background: transparent;
+      border: 1px solid transparent;
+      border-bottom: none;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      font-size: 12px;
+      font-family: inherit;
+      cursor: pointer;
+      border-radius: 4px 4px 0 0;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+
+    .runner-tab:hover { background: var(--card-hover); color: var(--text); }
+
+    .runner-tab.active {
+      background: var(--panel-3);
+      border-color: var(--border);
+      color: var(--accent);
+      font-weight: 600;
+      position: relative;
+      top: 1px;
+    }
+
+    .runner-tab[data-lang="html"].active { color: #e34c26; }
+    .runner-tab[data-lang="js"].active   { color: #b8860b; }
+    .runner-tab[data-lang="py"].active   { color: #3572A5; }
+    .runner-tab[data-lang="json"].active { color: #b8860b; }
+    .runner-tab[data-lang="xml"].active  { color: #e34c26; }
+    .runner-tab[data-lang="md"].active   { color: #083fa1; }
+
+    html.light .runner-tab[data-lang="md"].active { color: #1e40af; }
+
+    .runner-editor-header {
+      background: var(--panel-3);
+      border-bottom: 1px solid var(--border);
+      padding: 5px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .runner-editor-header .lang-name { font-weight: 600; color: var(--text); }
+    .runner-editor-header .spacer { flex: 1; }
+
+    .runner-split {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .runner-code-editor {
+      flex: 1;
+      width: 100%;
+      border: none;
+      outline: none;
+      resize: none;
+      padding: 14px 16px;
+      font-family: 'Consolas', 'Cascadia Code', 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.55;
+      background: var(--panel-3);
+      color: var(--text);
+      caret-color: var(--accent);
+      min-height: 120px;
+    }
+
+    .runner-output-wrap {
+      border-top: 1px solid var(--border);
+      background: var(--panel-2);
+      display: flex;
+      flex-direction: column;
+      max-height: 45%;
+      min-height: 120px;
+    }
+
+    .runner-output-header {
+      padding: 5px 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--panel-3);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .runner-output-header .spacer { flex: 1; }
+
+    .runner-output {
+      flex: 1;
+      padding: 12px 16px;
+      font-family: 'Consolas', 'Cascadia Code', 'Courier New', monospace;
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: var(--success-1);
+      background: var(--panel-2);
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      min-height: 80px;
+    }
+
+    .runner-output.empty { color: var(--text-muted); font-style: italic; }
+    .runner-output.error { color: var(--danger); }
+
+    .runner-html-preview {
+      flex: 1;
+      width: 100%;
+      border: none;
+      background: #ffffff;
+      min-height: 150px;
+      display: none;
+    }
+
+    .runner-html-preview.active { display: block; }
+
+    .runner-actions {
+      background: var(--panel-2);
+      border-top: 1px solid var(--border);
+      padding: 8px 12px;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .runner-actions button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .runner-actions button:hover { background: var(--accent-3); }
+    .runner-actions button:active { transform: scale(.98); }
+    .runner-actions button:disabled { background: #b0b0b0; cursor: not-allowed; }
+
+    .runner-actions button.secondary {
+      background: var(--panel-3);
+      color: var(--text-sub);
+      border: 1px solid var(--border-light);
+    }
+
+    .runner-actions button.secondary:hover { background: var(--card-hover); }
+
+    .runner-actions .hint { font-size: 10.5px; color: var(--text-muted); margin-left: auto; }
+
+    /* ============ EMBEDDED FEATURE REQUEST FORM ============ */
+    .form-container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 1.8rem;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .form-container h2 {
+      font-size: 1.8rem;
+      background: linear-gradient(90deg, #f59e0b, var(--danger));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-container p {
+      color: var(--text-sub);
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .form-container iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 1rem;
+      background: #ffffff;
+    }
+
+    .form-fallback {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .form-fallback a { color: var(--accent); }
+
+    /* Viewer overlay */
+    .viewer-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.92);
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .viewer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 1rem;
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid var(--border-light);
+      color: white;
+      flex-shrink: 0;
+      gap: 12px;
+    }
+
+    .viewer-header .title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .viewer-actions { display: flex; gap: 8px; align-items: center; }
+
+    .viewer-actions .vbtn {
+      background: rgba(59, 130, 246, 0.2);
+      border: 1px solid rgba(59, 130, 246, 0.5);
+      color: #93c5fd;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+
+    .viewer-actions .vbtn:hover { background: rgba(59, 130, 246, 0.35); }
+
+    .viewer-actions .vbtn.close {
+      background: rgba(239, 68, 68, 0.8);
+      border-color: var(--danger);
+      color: white;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border-radius: 50%;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .viewer-actions .vbtn.close:hover { background: #dc2626; }
+
+    .viewer-body {
+      flex: 1;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--viewer-bg);
+    }
+
+    .viewer-body iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: white;
+    }
+
+    .viewer-body img, .viewer-body video {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      margin: auto;
+      display: block;
+    }
+
+    .viewer-fallback {
+      padding: 3rem;
+      text-align: center;
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      margin: auto;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid var(--border-soft);
+      font-size: 0.75rem;
+      color: var(--text-faint);
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 1.2rem;
+      height: 1.2rem;
+      border: 2px solid rgba(128,128,128,0.2);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .controls { border-radius: 32px; flex-direction: column; align-items: stretch; }
+      .tab-buttons-inline { justify-content: center; }
+      .search-box { max-width: 100%; }
+      .theme-toggle-top { position: static; margin: 0 auto 1rem; }
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 1rem; }
+      .glow-text { font-size: 2rem; }
+      .notice-banner { font-size: 0.75rem; padding: 0.6rem 1rem; }
+      .eagle-title { font-size: 1.5rem; }
+      .download-all-btn { font-size: 0.9rem; padding: 0.9rem 1.8rem; }
+      .form-container iframe { height: 450px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="hero">
+    <button class="theme-toggle-top" id="themeToggle" onclick="toggleTheme()">🌙 Dark</button>
+    <h1 class="glow-text">🎮 UNBLOCKABLE GAMES</h1>
+    <div class="sub">download · play offline · no internet needed</div>
+    <div class="stats-bar">
+      <i class="fas fa-database"></i> <span id="gameCountDisplay">0</span> games available
+      <i class="fas fa-download" style="margin-left: 8px;"></i> <span>download & run</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="tab-buttons-inline">
+      <button class="tab-btn active" onclick="switchTab('games', this)">🎮 Games</button>
+      <button class="tab-btn" onclick="switchTab('eaglercraft', this)">⛏️ Eaglercraft</button>
+      <button class="tab-btn" onclick="switchTab('downloads', this)">📥 My Downloads</button>
+      <button class="tab-btn" onclick="switchTab('custom', this)">📂 Custom Files</button>
+      <button class="tab-btn" onclick="switchTab('request', this)">✨ Request Features</button>
+    </div>
+
+    <div class="search-box" id="searchBoxWrapper">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Search game... (e.g., fnaf, retro, pokemon)">
+    </div>
+
+    <div class="counter" id="counterWrapper">
+      <i class="fas fa-gamepad"></i> <span id="visibleCount">0</span> / <span id="totalCount">0</span>
+    </div>
+  </div>
+
+  <!-- GAMES TAB -->
+  <div id="tab-games" class="tab-content active">
+    <div class="notice-banner">
+      <i class="fas fa-info-circle"></i>
+      <span><strong>How it works:</strong> Click "Download" to save the game file to your computer. Once downloaded, open the file in your browser to play — no internet required!</span>
+    </div>
+
+    <div id="gamesContainer" class="games-grid">
+      <div style="text-align: center; padding: 3rem;"><i class="fas fa-spinner fa-pulse"></i> loading game library...</div>
+    </div>
+  </div>
+
+  <!-- EAGLERCRAFT TAB -->
+  <div id="tab-eaglercraft" class="tab-content">
+    <div class="sub-tabs">
+      <button class="sub-tab active" onclick="switchSubTab('new', this)">🆕 New Layout</button>
+      <button class="sub-tab" onclick="switchSubTab('old', this)">📜 Old Layout</button>
+    </div>
+
+    <!-- NEW LAYOUT -->
+    <div id="sub-new" class="sub-content active">
+      <div class="notice-banner">
+        <i class="fas fa-info-circle"></i>
+        <span><strong>All Eaglercraft clients:</strong> Every client/version from the collection. Click Download on any card, or use the "Download All" button at the bottom.</span>
+      </div>
+
+      <div class="eagle-wrap">
+        <h1 class="eagle-title" style="margin-bottom: 1rem;">⛏️ Eaglercraft Clients</h1>
+
+        <div id="eagleClientsGrid" class="eagle-clients-grid"></div>
+
+        <div class="download-all-section">
+          <button class="download-all-btn" id="downloadAllBtn" onclick="downloadAllEaglercraft()">
+            <i class="fas fa-cloud-download-alt"></i> Download All Eaglercraft Clients
+          </button>
+          <div class="download-all-note">
+            Opens each client's download link in a new tab (your browser may ask to allow multiple downloads).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OLD LAYOUT -->
+    <div id="sub-old" class="sub-content">
+      <div class="eagle-wrap">
+        <div class="eagle-home-text">
+          Welcome to google sites eaglercraft launcher (<a href="https://sites.google.com/view/eaglercraftlauncherplus?usp=sharing" target="_blank">https://sites.google.com/view/eaglercraftlauncherplus?usp=sharing</a>) this is on a google sites because its easy and really lazy a will release a GitHub version soon, one thing is that i don't own eaglercraft the game belongs to lax1dude. but this website has over 5 different versions with more being added soon the downloadable files aren't viruses and do not come with anything other than the game.
+        </div>
+
+        <h1 class="eagle-title">🎮 Eaglercraft Launcher</h1>
+        <div class="eagle-subtitle">Click any version to download — works offline, just double-click to play</div>
+
+        <div class="eagle-version-grid">
+          <div class="eagle-version-card" onclick="window.open('game_1.12.html', '_blank')">
+            <div class="eagle-version-icon">🐉</div>
+            <div class="eagle-version-name">1.12.2</div>
+            <div class="eagle-version-desc">Latest • Most features</div>
+            <button class="eagle-download-btn">📥 Download</button>
+          </div>
+          <div class="eagle-version-card" onclick="window.open('game_1.8.html', '_blank')">
+            <div class="eagle-version-icon">⚔️</div>
+            <div class="eagle-version-name">1.8.8</div>
+            <div class="eagle-version-desc">PvP favorite • Classic combat</div>
+            <button class="eagle-download-btn">📥 Download</button>
+          </div>
+          <div class="eagle-version-card" onclick="window.open('game_1.5.html', '_blank')">
+            <div class="eagle-version-icon">🏰</div>
+            <div class="eagle-version-name">1.5.2</div>
+            <div class="eagle-version-desc">Redstone update • Classic feel</div>
+            <button class="eagle-download-btn">📥 Download</button>
+          </div>
+          <div class="eagle-version-card" onclick="window.open('game_beta.html', '_blank')">
+            <div class="eagle-version-icon">🌙</div>
+            <div class="eagle-version-name">Beta</div>
+            <div class="eagle-version-desc">Beta 1.7.3 • Old world gen</div>
+            <button class="eagle-download-btn">📥 Download</button>
+          </div>
+          <div class="eagle-version-card" onclick="window.open('game_alpha.html', '_blank')">
+            <div class="eagle-version-icon">✨</div>
+            <div class="eagle-version-name">Alpha</div>
+            <div class="eagle-version-desc">Alpha 1.2.6 • Early days</div>
+            <button class="eagle-download-btn">📥 Download</button>
+          </div>
+          <div class="eagle-version-card" onclick="window.open('game_indev.html', '_blank')">
+            <div class="eagle-version-icon">🔥</div>
+            <div class="eagle-version-name">Indev</div>
+            <div class="eagle-version-desc">Indev • Where survival began</div>
+            <button class="eagle-download-btn">📥 Download</button>
+          </div>
+        </div>
+
+        <div class="eagle-every-version-section">
+          <h3>📦 Download Every Eaglercraft Version</h3>
+          <p>Complete collection — includes 1.12.2, 1.8.8, 1.5.2, Beta, Alpha, Indev, and more!</p>
+          <a href="https://drive.google.com/uc?export=download&id=16Tbk5S8KlvPCJ6g9XI1MOiuj8gary6Mk" class="eagle-every-version-btn">📥 Download Every Eaglercraft Version</a>
+          <p style="font-size: 0.7rem; color: var(--eagle-footer); margin-top: 15px;">📁 Complete archive — all versions in one ZIP file</p>
+        </div>
+
+        <div class="eagle-launcher2-section">
+          <h3>🚀 Eaglercraft Launcher Plus 2.0</h3>
+          <p>Download the latest offline client with all versions included!</p>
+          <a href="https://drive.google.com/uc?export=download&id=1rp1zIQwpKh4OosAvOkdRoEtU68CwQ6IF" class="eagle-launcher2-btn">📥 Download Eaglercraft Launcher Plus 2.0</a>
+          <p style="font-size: 0.7rem; color: var(--eagle-footer); margin-top: 15px;">💾 The all-in-one launcher — extract and play</p>
+        </div>
+
+        <div class="eagle-launcher-download-section">
+          <h3>🚀 Eaglercraft Launcher Plus</h3>
+          <p>Download the complete launcher with all versions included!</p>
+          <a href="https://drive.google.com/uc?export=download&id=1ucGSzFP6XQeJEh9WcA3GiDhBd_-eFnpj" class="eagle-launcher-dl-btn">📥 Download Eaglercraft Launcher Plus</a>
+          <p style="font-size: 0.7rem; color: var(--eagle-footer); margin-top: 15px;">Instructions: Download, extract, keep all files in the same folder, then open launcher.html</p>
+        </div>
+
+        <div class="eagle-custom-download-section">
+          <h2 style="color: var(--eagle-green); font-size: 1.3rem; margin-bottom: 10px;">Eaglercraft Custom Launchers</h2>
+          <p style="color: var(--eagle-blue); margin-bottom: 20px; font-size: 0.85rem;">Click the button below to download</p>
+          <a href="https://drive.google.com/uc?export=download&id=1OFDRctryiuEmogFgv8ECfJPHn61VFBsP" class="eagle-launcher-dl-btn">📥 Download Eaglercraft Custom Launchers</a>
+        </div>
+
+        <div class="eagle-footer">🎮 All versions work offline • No viruses, just the game • More versions coming soon</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MY DOWNLOADS TAB -->
+  <div id="tab-downloads" class="tab-content">
+    <div class="storage-note">
+      <i class="fas fa-folder-open"></i>
+      <span><strong>Note:</strong> This list shows the games you've downloaded from this site. Click "Remove" to delete an entry from the list.</span>
+    </div>
+    <div class="downloads-header">
+      <h2>📥 My Downloaded Games</h2>
+      <button class="refresh-btn" onclick="renderDownloads()">
+        <i class="fas fa-sync-alt"></i> Refresh
+      </button>
+    </div>
+    <div id="downloadsContainer" class="games-grid">
+      <div style="text-align: center; padding: 3rem;"><i class="fas fa-spinner fa-pulse"></i> loading downloads...</div>
+    </div>
+  </div>
+
+  <!-- CUSTOM FILES TAB -->
+  <div id="tab-custom" class="tab-content">
+    <div class="sub-tabs">
+      <button class="sub-tab active" onclick="switchCustomSubTab('files', this)">📂 Files</button>
+      <button class="sub-tab" onclick="switchCustomSubTab('runner', this)">▶️ Code Runner</button>
+    </div>
+
+    <!-- FILES SUBTAB -->
+    <div id="custom-sub-files" class="sub-content active">
+      <div class="storage-note">
+        <i class="fas fa-info-circle"></i>
+        <span><strong>Upload HTML games, GIFs, images, and videos:</strong> Everything is saved locally in your browser. Click "Open" to view or play — works offline!</span>
+      </div>
+
+      <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <h3>Drop files here or click to upload</h3>
+        <p>HTML games, GIFs, images, videos — everything stays on your device</p>
+        <div class="hint">Your files are saved in this browser's local storage.</div>
+        <input type="file" id="fileInput" multiple accept=".html,.htm,.gif,.png,.jpg,.jpeg,.webp,.svg,.mp4,.webm,.ogg,.zip,image/*,video/*" style="display:none" onchange="handleFileSelect(event)">
+      </div>
+
+      <div class="downloads-header">
+        <h2>📂 Your Custom Files</h2>
+        <button class="refresh-btn" onclick="renderCustomFiles()">
+          <i class="fas fa-sync-alt"></i> Refresh
+        </button>
+      </div>
+
+      <div id="customFilesContainer" class="games-grid"></div>
+    </div>
+
+    <!-- CODE RUNNER SUBTAB -->
+    <div id="custom-sub-runner" class="sub-content">
+      <div class="notice-banner">
+        <i class="fas fa-info-circle"></i>
+        <span><strong>Code Runner:</strong> Write and run HTML, JavaScript, Python, JSON, XML, and Markdown right here. (Python loads ~10MB the first time.)</span>
+      </div>
+
+      <div class="runner-container">
+        <div class="runner-titlebar">
+          <span class="app-name"><span class="logo">R</span> Runner</span>
+          <span class="status-pill" id="runnerStatus">ready</span>
+          <span class="spacer"></span>
+        </div>
+
+        <div class="runner-tabs" id="runnerTabs">
+          <button class="runner-tab active" data-lang="html">🌐 HTML</button>
+          <button class="runner-tab" data-lang="js">✨ JS</button>
+          <button class="runner-tab" data-lang="py">🐍 Python</button>
+          <button class="runner-tab" data-lang="json">📦 JSON</button>
+          <button class="runner-tab" data-lang="xml">📄 XML</button>
+          <button class="runner-tab" data-lang="md">📝 Markdown</button>
+        </div>
+
+        <div class="runner-editor-header">
+          <span class="lang-name" id="runnerCodeTitle">HTML</span>
+          <span class="spacer"></span>
+          <span id="runnerLangHint"></span>
+        </div>
+
+        <div class="runner-split">
+          <textarea id="runnerCodeEditor" class="runner-code-editor" spellcheck="false"></textarea>
+
+          <div class="runner-output-wrap">
+            <div class="runner-output-header">
+              <span>Output</span>
+              <span class="spacer"></span>
+              <span id="runnerRunTime" style="color: var(--text-muted); font-size: 11px;"></span>
+            </div>
+            <div id="runnerOutput" class="runner-output empty">Press ▶ Run to execute</div>
+            <iframe id="runnerHtmlPreview" class="runner-html-preview" sandbox="allow-scripts allow-modals allow-forms allow-popups allow-same-origin"></iframe>
+          </div>
+        </div>
+
+        <div class="runner-actions">
+          <button id="runnerRunBtn">▶ Run</button>
+          <button class="secondary" id="runnerResetBtn">↺ Reset</button>
+          <span class="hint" id="runnerHint"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REQUEST FEATURES TAB (embedded form) -->
+  <div id="tab-request" class="tab-content">
+    <div class="form-container">
+      <h2>✨ Request a Feature</h2>
+      <p>Have an idea for a new game, feature, or improvement? Fill out the form below!</p>
+
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfOysUT0Hx07_IAashJ_d_56DPveSouP7K8nncUkomt2TaMow/viewform?embedded=true"
+        width="640"
+        height="600"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Feature Request Form"
+      >Loading…</iframe>
+
+      <div class="form-fallback">
+        Form not loading? <a href="https://forms.gle/bPjnqQ4ACagEa1MQ7" target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <i class="fas fa-shield-alt"></i> all games are downloadable — fully unblocked.<br>
+    ⚡ click "Download" to save the game file, then open it locally in your browser.
+  </footer>
+</div>
+
+<script>
+  // --------------------------------------------------------------
+  // GAME LIST — all 91 games
+  // --------------------------------------------------------------
+  const GAME_DATA = [
+    { name: "1v1.LOL", link: "https://drive.google.com/file/d/1J_8XLWf2f0W5vSoL7bTknyAKuz_NQvop/view?usp=sharing", fileName: "1v1lol.html" },
+    { name: "Agar.io", link: "https://drive.google.com/file/d/1ADWRkZy5KUs62G7tR1vzwskj4W_eS8GT/view?usp=sharing", fileName: "agario.html" },
+    { name: "Among Us", link: "https://drive.google.com/file/d/1ZpJLqQwSqklEAF8Bbotc_vV_SgNs4si3/view?usp=sharing", fileName: "amongus.html" },
+    { name: "Awesome Tanks", link: "https://drive.google.com/file/d/1myRiXQyj8Omdc7oy7saJsZtZrKJX_4m3/view?usp=sharing", fileName: "awesome.html" },
+    { name: "Bad Time Simulator", link: "https://drive.google.com/file/d/1XwxuDQq8BTYJqfup96HGY0J2CbmDlTHs/view?usp=sharing", fileName: "badtime.html" },
+    { name: "Base Bros", link: "https://drive.google.com/file/d/1nWfGCCrJZaLdLOduGqAi7UU2GqOUylcp/view?usp=sharing", fileName: "basebros.html" },
+    { name: "Basket Bros", link: "https://drive.google.com/file/d/15hW7lwempF5lyWJBf9fM0DlEqKCRZE2H/view?usp=sharing", fileName: "basketbros.html" },
+    { name: "Basket Stars", link: "https://drive.google.com/file/d/1gy-3irTssar6Bn5AosgGPhrf9EId89Gd/view?usp=sharing", fileName: "basketstars.html" },
+    { name: "Binding of Isaac", link: "https://drive.google.com/file/d/1nbSxx953_D2UpSUaRMq56gNIgdwTkK8a/view?usp=sharing", fileName: "bind.html" },
+    { name: "BitLife", link: "https://drive.google.com/file/d/1FMDBC5hFfYmTm2aRpJ88Crr_siItN705/view?usp=sharing", fileName: "bitlife.html" },
+    { name: "Boxing Random", link: "https://drive.google.com/file/d/1F3rRTgcZeWCTHM6ENhGaWSlAcXRrut-V/view?usp=sharing", fileName: "boxingrandom.html" },
+    { name: "Celeste Classic", link: "https://drive.google.com/file/d/1U1-1RfOz--mfyfV5UYU2A14yu02x7-Tn/view?usp=sharing", fileName: "celeste.html" },
+    { name: "Clash of Clans", link: "https://drive.google.com/file/d/1vnZ1SFoNnHNYq8VquSKu3OqJkwSRtZuj/view?usp=sharing", fileName: "clash.html" },
+    { name: "Call of Duty MW4", link: "https://drive.google.com/file/d/1S0eMbZ1wPzP_FAl2fDrujhKZDFHwc_qH/view?usp=sharing", fileName: "codmw4.html" },
+    { name: "Cookie Clicker", link: "https://drive.google.com/file/d/1KQaVavoACF7x5NNm2BosOAcukd4cTi49/view?usp=sharing", fileName: "cookie.html" },
+    { name: "Crossy Road", link: "https://drive.google.com/file/d/1lYIJ7syun9UcXsXnCkaZewaUFNOzOKsM/view?usp=sharing", fileName: "crossyroads.html" },
+    { name: "CS:GO Survivor", link: "https://drive.google.com/file/d/1Z-If8Jm0PuJJy_3POeP0XmWsDrQYKsBL/view?usp=sharing", fileName: "csgo.html" },
+    { name: "Deltarune", link: "https://drive.google.com/file/d/1J3WcdT9bfpP8ySer2HUBjWn5wqVczZBh/view?usp=sharing", fileName: "deltarune.html" },
+    { name: "DOOM", link: "https://drive.google.com/file/d/1T0JJ3vSYHEpOEfpUHC4jNPZ2p6CA2FZY/view?usp=sharing", fileName: "doom.html" },
+    { name: "Drift Hunters", link: "https://drive.google.com/file/d/1YiimbNjd7PbrW8nXwQdUe-dBGwD0xpLU/view?usp=sharing", fileName: "drifthunters.html" },
+    { name: "Eaglercraft 1.22", link: "https://drive.google.com/file/d/1Or87qFLqCqT7yVfcwGBxLK-0uGwkRxdQ/view?usp=sharing", fileName: "eaglercraft122.html" },
+    { name: "Eaglercraft 1.5.2", link: "https://drive.google.com/file/d/1abbXQj94pbi7Nqe3rfP3k8IdChvKIjkV/view?usp=sharing", fileName: "eaglercraft152.html" },
+    { name: "Fancy Pants Adventure", link: "https://drive.google.com/file/d/1Au18FT1YLC-Wj5jqfe8EI8Wm6RdttDG5/view?usp=sharing", fileName: "fancypantsadventure.html" },
+    { name: "FIFA 11", link: "https://drive.google.com/file/d/1tb2N7I10Yc8trTaPv2TX9qn_jTIw-Kkc/view?usp=sharing", fileName: "fifa11.html" },
+    { name: "FNAF", link: "https://drive.google.com/file/d/1Pf-jyetQwXKnCi6pO6SMFIX4cv7MwEiH/view?usp=sharing", fileName: "fnaf.html" },
+    { name: "FNAF 2", link: "https://drive.google.com/file/d/12tBT-cQb-ybryHbJQ8uE1i7v4KHitnBX/view?usp=sharing", fileName: "fnaf2.html" },
+    { name: "FNAF 3", link: "https://drive.google.com/file/d/1EAV2pIEg1w_poHE-XdxlIrY6650f2Dr5/view?usp=sharing", fileName: "fnaf3.html" },
+    { name: "FNAF 4", link: "https://drive.google.com/file/d/13gHtnVnqdUIsPJ-oMKnT5HhnvObf3nt3/view?usp=sharing", fileName: "fnaf4.html" },
+    { name: "Friday Night Funkin'", link: "https://drive.google.com/file/d/12eLGA6sK3ZrXMy8jzUueEdOGFLgkBnP6/view?usp=sharing", fileName: "fnf.html" },
+    { name: "FootBros", link: "https://drive.google.com/file/d/1OzuuO3jNQtoks5p2BuTKNsVXm0myHD67/view?usp=sharing", fileName: "footbros.html" },
+    { name: "Fruit Ninja", link: "https://drive.google.com/file/d/1Hk6qVgh2msYcFhyAJOtJ1N1DmlDWyg8F/view?usp=sharing", fileName: "fruitninja.html" },
+    { name: "Funny Shooter 2", link: "https://drive.google.com/file/d/1CYERikgLk_jnkFeu6WYiNbMQzZF7h7eA/view?usp=sharing", fileName: "funnyshooter2.html" },
+    { name: "Geometry Dash", link: "https://drive.google.com/file/d/1z9dztbDon0OuiO-R1umSh1mvPNw94KUN/view?usp=sharing", fileName: "geometrydash.html" },
+    { name: "Gladdihoppers", link: "https://drive.google.com/file/d/17qqoQnSuwy2fc96Wc_ZXK2nuD2E9zsha/view?usp=sharing", fileName: "gladd.html" },
+    { name: "Granny", link: "https://drive.google.com/file/d/1XL95nY5u7yaqhx1Rc6BWnB-FhkTSRBPw/view?usp=sharing", fileName: "granny.html" },
+    { name: "Granny 2", link: "https://drive.google.com/file/d/1dkhw2YZBzHlsk3EljHyMTj3NsHI3JVFz/view?usp=sharing", fileName: "granny2.html" },
+    { name: "House of Hazards", link: "https://drive.google.com/file/d/1NA1TaPgLfIZFVFZPPEr4HPdYEKN1W3PB/view?usp=sharing", fileName: "hazard.html" },
+    { name: "Hollow Knight", link: "https://drive.google.com/file/d/1B1mJ2JbUeqgDCUsbz04VEe4M47DhUylZ/view?usp=sharing", fileName: "hollow.html" },
+    { name: "Ice Dodo", link: "https://drive.google.com/file/d/1YLsZU_Zs3i11w3w8n1iLx205U-rXXu88/view?usp=sharing", fileName: "icedodo.html" },
+    { name: "Jetpack Joyride", link: "https://drive.google.com/file/d/19xAsnqrJiYgC1RKGQgh7F0ut_mZnALQ9/view?usp=sharing", fileName: "jet.html" },
+    { name: "Karlson", link: "https://drive.google.com/file/d/1SAikZ_MQGn9sDeTw-1lFtjwaJ87-7ukJ/view?usp=sharing", fileName: "karl.html" },
+    { name: "Kindergarten", link: "https://drive.google.com/file/d/1IipCya5UKCTvJXaY_DoqjTK6jAFBhl2u/view?usp=sharing", fileName: "kinder.html" },
+    { name: "Kindergarten 2", link: "https://drive.google.com/file/d/11F17IEkXSfvuUJqq8lpfrvnMAveIf6KP/view?usp=sharing", fileName: "kinder2.html" },
+    { name: "Kindergarten 3", link: "https://drive.google.com/file/d/1zLdX-aqXBJOfcW74FeX5Q7nkqV2ri0yt/view?usp=sharing", fileName: "kinder3.html" },
+    { name: "Line Rider", link: "https://drive.google.com/file/d/1xnT62RW1U9z-GTkVeiCB9s4gA28A8U4c/view?usp=sharing", fileName: "linerider.html" },
+    { name: "Mario Combat", link: "https://drive.google.com/file/d/1ny7D3R7BOlkClfydggMXU7R4Pcn5SBWd/view?usp=sharing", fileName: "mariocombat.html" },
+    { name: "Mario Kart 64", link: "https://drive.google.com/file/d/12ExDPMtS4UhO-QE5tGWBYDAFd_jOYwfr/view?usp=sharing", fileName: "mariokart64.html" },
+    { name: "Metal Gear Solid", link: "https://drive.google.com/file/d/122_VvCupZHgNG6_WtVYs5Oq5yiRlqRjd/view?usp=sharing", fileName: "metal.html" },
+    { name: "Metroid Fusion", link: "https://drive.google.com/file/d/1eIjShEel4bxiXVMK31KSWSg69qYadVoW/view?usp=sharing", fileName: "metroidfusion.html" },
+    { name: "Moto X3M", link: "https://drive.google.com/file/d/1WZii1nCZIFj96h62KqbFodqQMql0I7gf/view?usp=sharing", fileName: "motox3m.html" },
+    { name: "Nuts & Bolts", link: "https://drive.google.com/file/d/1BoyO_SF8cuksmBZ5l-fhmd_vor6p_piC/view?usp=sharing", fileName: "nutsnbolts.html" },
+    { name: "Oblivion Eve", link: "https://drive.google.com/file/d/15HiFBRU0O-KaCiuHPyMA8XxEgthKrCGN/view?usp=sharing", fileName: "oblivoneve.html" },
+    { name: "Ocarina of Time", link: "https://drive.google.com/file/d/1aSFMw_EXZwfSvLr5HBQnFqkIYz_ZKWJq/view?usp=sharing", fileName: "ocarina.html" },
+    { name: "OMORI", link: "https://drive.google.com/file/d/1rOziGPFCe9ZT_kUnpyV-jagB9aELgcIV/view?usp=sharing", fileName: "omori.html" },
+    { name: "OneShot", link: "https://drive.google.com/file/d/1rUWWsRQXi2IoyH6tkjVKkpmVrJEMdmnE/view?usp=sharing", fileName: "oneshot.html" },
+    { name: "OVO", link: "https://drive.google.com/file/d/1q87oXQSVIV_QgT-s8wVfVqU7N4Fjr9lI/view?usp=sharing", fileName: "ovo.html" },
+    { name: "OVO 2", link: "https://drive.google.com/file/d/1RZ9A04DJRzB0VMpMXvOVZyVnNOf2OHSU/view?usp=sharing", fileName: "ovo2.html" },
+    { name: "Paper.io", link: "https://drive.google.com/file/d/15b_0OWR4z_vTHHXyVRUHSlpWYrRhcKf1/view?usp=sharing", fileName: "paperio.html" },
+    { name: "Pokemon Emerald", link: "https://drive.google.com/file/d/1gHiIaXrBKofCIUKmxGI2mvNOREOww1tH/view?usp=sharing", fileName: "pokemonemerald.html" },
+    { name: "Pokemon Emerald Rogue", link: "https://drive.google.com/file/d/1ORD_gHAe5dwTq-yk86xV4AXP8FIknc2W/view?usp=sharing", fileName: "pokemonemeraldrg.html" },
+    { name: "Pokemon FireRed", link: "https://drive.google.com/file/d/1Cbd6RRdXac18EvvGiunRsOLh7NXNLkR4/view?usp=sharing", fileName: "pokemonfirered.html" },
+    { name: "Pokemon LeafGreen", link: "https://drive.google.com/file/d/15N_jmS2sQywGK52fO-fuLXb1fWKQfyxw/view?usp=sharing", fileName: "pokemonleafgreen.html" },
+    { name: "Pokemon Ruby", link: "https://drive.google.com/file/d/1IcB-LYqd4TXvRSpgts9O9Q5rgOg8-GNM/view?usp=sharing", fileName: "pokemonruby.html" },
+    { name: "Pokemon Stadium", link: "https://drive.google.com/file/d/13q06o79hqy6a8kSHvUk-syQ0xe72tPYp/view?usp=sharing", fileName: "pokemonstadium.html" },
+    { name: "Pokemon Unbound", link: "https://drive.google.com/file/d/1nPWO-UesDo44HW7w1M1R-_ui9p_6Xxr2/view?usp=sharing", fileName: "pokemonunbound.html" },
+    { name: "Red Ball", link: "https://drive.google.com/file/d/1Jun3vt_cAhxwfPPFKNs9v0jvpIC33BrK/view?usp=sharing", fileName: "redball.html" },
+    { name: "Repo Man", link: "https://drive.google.com/file/d/1symC8hcNSg1iJLB-xIAIf1eC0NLgCz3f/view?usp=sharing", fileName: "repo.html" },
+    { name: "Retro Bowl", link: "https://drive.google.com/file/d/1eD_2kCzyEEOBscTL-t_VOvZGt73c7i_Z/view?usp=sharing", fileName: "retrobowl.html" },
+    { name: "Retro Bowl College", link: "https://drive.google.com/file/d/1BIT30wGCHOFdIhj9p3U9GE7w98sWSdgC/view?usp=sharing", fileName: "retrobowlcollege.html" },
+    { name: "Riddle School", link: "https://drive.google.com/file/d/17l6XDm02bSGdbKxfele8C4FoyIWg_8Qi/view?usp=sharing", fileName: "riddleschool.html" },
+    { name: "Rooftop Snipers", link: "https://drive.google.com/file/d/1QWk_Gf8987o1mOlt-MGWFfMRswNkymVY/view?usp=sharing", fileName: "rooftopsnipers.html" },
+    { name: "Rooftop Snipers 2", link: "https://drive.google.com/file/d/1qqp0ARjfcodb5DCG-dIkJkOCNnf8HIPn/view?usp=sharing", fileName: "rooftopsnipers2.html" },
+    { name: "Silent Hill", link: "https://drive.google.com/file/d/1TTOrn_oRB54FrdfFYiJkFGL0OrUJv0__/view?usp=sharing", fileName: "silent.html" },
+    { name: "Silksong", link: "https://drive.google.com/file/d/1NuKDPxjjr_H3MaCB-6k3IYmaY3porm6p/view?usp=sharing", fileName: "silksong.html" },
+    { name: "Slope Plus", link: "https://drive.google.com/file/d/1BizBCbHvzenGZd-g_WctPnFGqD1mSMTm/view?usp=sharing", fileName: "slopeplus.html" },
+    { name: "Snow Bros", link: "https://drive.google.com/file/d/1RSRxpdtd981tmpaDycETHajgqHf2NJu_/view?usp=sharing", fileName: "snow.html" },
+    { name: "Snow Rider", link: "https://drive.google.com/file/d/18SacGejBiG5DlyCd7C3JQqPsMd92dPZX/view?usp=sharing", fileName: "snowrider.html" },
+    { name: "Sonic The Hedgehog", link: "https://drive.google.com/file/d/1Nnaxx79eeOAk3aw0J6CyeIHirEP2Jvg2/view?usp=sharing", fileName: "sonicthehedgehog.html" },
+    { name: "Subway Surfers Miami", link: "https://drive.google.com/file/d/1FeZP_1ekQ_CUTWye5KMbNtCMnUHj5vvS/view?usp=sharing", fileName: "subwaysurfersmiami.html" },
+    { name: "Subway Surfers Winter", link: "https://drive.google.com/file/d/18C5GMXlTVcwvE9wiAM6gn5_WWYhaV9Xi/view?usp=sharing", fileName: "subwaysurferswinterholiday.html" },
+    { name: "Supa Golf", link: "https://drive.google.com/file/d/14g1IKLQU4tFGbYWyWZt4ddkn0deON53B/view?usp=sharing", fileName: "supa.html" },
+    { name: "Super Mario 64", link: "https://drive.google.com/file/d/1msvQHMIgqBM8Xf_DIFIH5PbI9NNW6w9D/view?usp=sharing", fileName: "supermario64.html" },
+    { name: "Taisei Project", link: "https://drive.google.com/file/d/1erjsIqTVCi-bc7tRLgvPURbC7GFHgSbD/view?usp=sharing", fileName: "taiseiproject.html" },
+    { name: "They Are Coming", link: "https://drive.google.com/file/d/1GWAGzy7JWLZNBOORivKQ_MzehIHz80ap/view?usp=sharing", fileName: "theycomin.html" },
+    { name: "Tiny Fishing", link: "https://drive.google.com/file/d/18XTmZGNKsxxm335oBm0HGUZMnzpzwJVf/view?usp=sharing", fileName: "tinyfishing.html" },
+    { name: "ULTRAKILL", link: "https://drive.google.com/file/d/16c3Ni97dXuqv9Ub4IWXOAGttsvy_b1TR/view?usp=sharing", fileName: "ultrakill.html" },
+    { name: "Unfair Undyne", link: "https://drive.google.com/file/d/1DnBwjPSlz4oVnyzVlPAhV1sbo9u-3tm8/view?usp=sharing", fileName: "unfairundyne.html" },
+    { name: "VEX", link: "https://drive.google.com/file/d/1ofhmDPdrknlmUIK8Ix-noreMTVgIr8aa/view?usp=sharing", fileName: "vex.html" },
+    { name: "VEX 2", link: "https://drive.google.com/file/d/12JlZlZ3XXu18lT3Jnz-9rJuJH2Hqgy-W/view?usp=sharing", fileName: "vex2.html" },
+    { name: "VEX 3", link: "https://drive.google.com/file/d/1Ta-ux8YLmZnMdaBdEhA3WQXq-51kljIx/view?usp=sharing", fileName: "vex3.html" },
+    { name: "Volley Random", link: "https://drive.google.com/file/d/1yRlDyri1-cAFAKrggpcIPRiKvJYngu-B/view?usp=sharing", fileName: "volleyrandom.html" },
+    { name: "Yume Nikki", link: "https://drive.google.com/file/d/1X2EJdE2wVA_Us_DzwW56HUAZG8n-oHAs/view?usp=sharing", fileName: "yume.html" },
+  ];
+
+  // --------------------------------------------------------------
+  // EAGLERCRAFT CLIENT LIST
+  // --------------------------------------------------------------
+  const EAGLER_CLIENTS = [
+    { name: "Winston Horror Client (JS)", file: "eaglercraft.dev_Winston_Horror_Client_JS.html", id: "1bAWeymbX4Hysj62xQk4Uc1ZJd7R2Wsp4" },
+    { name: "Tuff Client (WASM)", file: "eaglercraft.dev_Tuff_Client_WASM.html", id: "19ViaiEaM7gKn45h-ttzQBHBpSb9j1Yze" },
+    { name: "Tuff Client (JS)", file: "eaglercraft.dev_Tuff_Client_JS.html", id: "1FLu9-iEvXn-kQzGnZ1EktnHOj2_gImmU" },
+    { name: "Tuff Client Beta 1.1UT12 (WASM)", file: "eaglercraft.dev_Tuff_Client_Beta_1.1UT12_WASM.html", id: "1wDf0pO10bzxdc33dnoT-EGoBPs7t3o5g" },
+    { name: "Tuff Client Beta 1.1UT12 (JS)", file: "eaglercraft.dev_Tuff_Client_Beta_1.1UT12_JS.html", id: "1dPSLBIh8Bj0_Du_1FvPXvNUaRJ-MIkk3" },
+    { name: "Starlike Client 0.4.2 (JS)", file: "eaglercraft.dev_Starlike_Client_0.4.2_JS.html", id: "1jplgUxWpuamcoP7-3SSW7Szc7OI0ZkJ8" },
+    { name: "Resent Client 5.0 (WASM)", file: "eaglercraft.dev_Resent_Client_5.0_WASM.html", id: "1LKPfRecyZqLbBHVU1XUG1SS0NzvhKThw" },
+    { name: "Resent Client 5.0 (JS)", file: "eaglercraft.dev_Resent_Client_5.0_JS.html", id: "1wAL5ZfywVL6C9jvulf3VzNDPkFntFeR8" },
+    { name: "Resent Client 4.0 (JS)", file: "eaglercraft.dev_Resent_Client_4.0_JS.html", id: "1qu53YDaZNdAOi3Ojb0ACUYZNgunVXcTA" },
+    { name: "Release 1.12.2 (WASM)", file: "eaglercraft.dev_Release_1.12.2_WASM.html", id: "1eF-FU18Yu5KiWFBHR6eA0e43qmVIjBKa" },
+    { name: "Release 1.12.2 (JS)", file: "eaglercraft.dev_Release_1.12.2_JS.html", id: "1NjMwD9_SFGb8dhvQvTnuMsFFseP__1H8" },
+    { name: "Release 1.8.8 (WASM)", file: "eaglercraft.dev_Release_1.8.8_WASM.html", id: "1ozHLl4eBre2RkIUcx2a2NX2sfaQtcSVu" },
+    { name: "Release 1.8.8 (JS)", file: "eaglercraft.dev_Release_1.8.8_JS.html", id: "112jyGE6r7FFIHHYsMp2jnogIwZf7mmf4" },
+    { name: "Release 1.5.2 (JS)", file: "eaglercraft.dev_Release_1.5.2_JS.html", id: "1zoqpULNVhQNjxkL5tpVbUFHXSVvBiErZ" },
+    { name: "Release 1.2.5 (WASM)", file: "eaglercraft.dev_Release_1.2.5_WASM.html", id: "1Ivbi1FHY2NK7p0ZIeCCaTbmVywsHvRcj" },
+    { name: "Release 1.2.5 (JS)", file: "eaglercraft.dev_Release_1.2.5_JS.html", id: "1ThvhwotJFWPbYd9Vg7MLqbLG1LrI61UU" },
+    { name: "PixelClient 1.12.2 (WASM)", file: "eaglercraft.dev_PixelClient_1.12.2_WASM.html", id: "1tjhwtqVEALuJWjQwg1haTEb405R5n-rc" },
+    { name: "PixelClient 1.12.2 (JS)", file: "eaglercraft.dev_PixelClient_1.12.2_JS.html", id: "13UJ5DFitH1rTIhWd91OvcLeic8jtZNEY" },
+    { name: "PixelClient 1.8.8 (WASM)", file: "eaglercraft.dev_PixelClient_1.8.8_WASM.html", id: "1fy3VN2SOuvJbK4AT38X6HLPtc_DVJ6hz" },
+    { name: "PixelClient 1.8.8 (JS)", file: "eaglercraft.dev_PixelClient_1.8.8_JS.html", id: "17IVcq2zM6Jy7xxRsKQ_XYNSMeye7rWcI" },
+    { name: "Indev 20100223 (WASM)", file: "eaglercraft.dev_Indev_20100223_WASM.html", id: "1nxKY4o8Em5vTGyoEnrOxJon1f13v8pn0" },
+    { name: "Indev 20100223 (JS)", file: "eaglercraft.dev_Indev_20100223_JS.html", id: "17mbOlwoiVevyjQpRgRonUkcN7CwTfPyw" },
+    { name: "Eaglercraft Zeta Client a0.0.1 (JS)", file: "eaglercraft.dev_Eaglercraft_Zeta_Client_a0.0.1_JS.html", id: "1cvF1H8ItOKSHaJ9Ln-5361Z9Jwg9IJ38" },
+    { name: "Classic 0.30 (WASM)", file: "eaglercraft.dev_Classic_0.30_WASM.html", id: "1CL-eWPGnQIp99sOaBqIzARM8owdUXqxP" },
+    { name: "Beta 1.8.1 (WASM)", file: "eaglercraft.dev_Beta_1.8.1_WASM.html", id: "1EtuULSaBfYF6qMBgczq73Oab9kBe-SCA" },
+    { name: "Beta 1.8.1 (JS)", file: "eaglercraft.dev_Beta_1.8.1_JS.html", id: "1nlGO4ditHdJjDg9zIpYOa3BNPKsIBRiC" },
+    { name: "Beta 1.7.3 (JS)", file: "eaglercraft.dev_Beta_1.7.3_JS.html", id: "1HimK6C497UX3H8PiOqaluML1I3VAkxTB" },
+    { name: "Beta 1.6 (WASM)", file: "eaglercraft.dev_Beta_1.6_WASM.html", id: "1_KNLKplfjHa5ejt8HHgYvYKxzbBuqqHE" },
+    { name: "Beta 1.6 (JS)", file: "eaglercraft.dev_Beta_1.6_JS.html", id: "154KrXL18nfZTt1qMMmb8LHJCASKKm3dD" },
+    { name: "Beta 1.3 (JS)", file: "eaglercraft.dev_Beta_1.3_JS.html", id: "13jl0txORxQrvbLChrL2JeUpL-3jmNENY" },
+    { name: "Astra Client 1.6.0 (WASM)", file: "eaglercraft.dev_Astra_Client_1.6.0_WASM.html", id: "1BDZ4b0GzOlv84I1CpTvLFYi5olfrAEMo" },
+    { name: "Astra Client 1.6.0 (JS)", file: "eaglercraft.dev_Astra_Client_1.6.0_JS.html", id: "17r48QLck1V3-bAPKP6D8MfIwXktDfHev" },
+    { name: "Alpha 1.2.6 (WASM)", file: "eaglercraft.dev_Alpha_1.2.6_WASM.html", id: "1dXTQ2_9WKszTRAqZfxNRk7hChQE97EWS" },
+    { name: "Alpha 1.2.6 (JS)", file: "eaglercraft.dev_Alpha_1.2.6_JS.html", id: "1ncomW7HQ6AaWQREZgpo0VzGHviz3m85V" },
+    { name: "Alpha 1.0.16 (WASM)", file: "eaglercraft.dev_Alpha_1.0.16_WASM.html", id: "1qFpxB34cq1IP_tcqLpZX-NX6vYhhhxbo" },
+    { name: "Alpha 1.0.16 (JS)", file: "eaglercraft.dev_Alpha_1.0.16_JS.html", id: "1j7xbBTFJkkSLR6teASpBNI2XauA9MPSB" },
+  ];
+
+  function extractFileId(url) {
+    let match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+    if (match) return match[1];
+    match = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+    if (match) return match[1];
+    if (/^[a-zA-Z0-9_-]+$/.test(url)) return url;
+    return null;
+  }
+
+  function buildDownloadUrl(shareLink) {
+    const fileId = extractFileId(shareLink);
+    if (!fileId) return null;
+    return "https://drive.google.com/uc?export=download&id=" + fileId;
+  }
+
+  function buildGameList() {
+    return GAME_DATA.map(game => ({
+      id: game.fileName,
+      name: game.name,
+      fileName: game.fileName,
+      size: '~2MB',
+      icon: getGameIcon(game.name, game.fileName),
+      downloadUrl: buildDownloadUrl(game.link)
+    })).filter(g => g.downloadUrl !== null);
+  }
+
+  function getGameIcon(gameName, fileName) {
+    const lower = (gameName + ' ' + fileName).toLowerCase();
+    if (lower.includes('fnaf')) return '🐻';
+    if (lower.includes('pokemon')) return '⚡';
+    if (lower.includes('mario')) return '🍄';
+    if (lower.includes('retrobowl') || lower.includes('retro bowl')) return '🏈';
+    if (lower.includes('1v1')) return '🔫';
+    if (lower.includes('agario')) return '🟢';
+    if (lower.includes('amongus') || lower.includes('among us')) return '👾';
+    if (lower.includes('geometrydash') || lower.includes('geometry dash')) return '🔺';
+    if (lower.includes('drifthunters') || lower.includes('drift hunters')) return '🏎️';
+    if (lower.includes('fruitninja') || lower.includes('fruit ninja')) return '🍉';
+    if (lower.includes('subwaysurfers') || lower.includes('subway surfers')) return '🚇';
+    if (lower.includes('sonic')) return '💨';
+    if (lower.includes('granny')) return '👵';
+    if (lower.includes('vex')) return '🧗';
+    if (lower.includes('slope')) return '⛰️';
+    if (lower.includes('ovo')) return '🥚';
+    if (lower.includes('paperio') || lower.includes('paper.io')) return '📄';
+    if (lower.includes('doom')) return '👹';
+    if (lower.includes('celeste')) return '🏔️';
+    if (lower.includes('eaglercraft') || lower.includes('minecraft')) return '⛏️';
+    if (lower.includes('basket')) return '🏀';
+    if (lower.includes('football') || lower.includes('footbros')) return '⚽';
+    if (lower.includes('boxing')) return '🥊';
+    if (lower.includes('hollow')) return '🗡️';
+    if (lower.includes('ice') || lower.includes('icedodo')) return '🧊';
+    if (lower.includes('hazard')) return '⚠️';
+    if (lower.includes('jet')) return '🚀';
+    if (lower.includes('karl')) return '🔨';
+    if (lower.includes('kinder')) return '🎒';
+    if (lower.includes('linerider')) return '🛷';
+    if (lower.includes('metal')) return '🎖️';
+    if (lower.includes('metroid')) return '👽';
+    if (lower.includes('moto')) return '🏍️';
+    if (lower.includes('nuts')) return '🔩';
+    if (lower.includes('obliv')) return '🌑';
+    if (lower.includes('ocarina')) return '🎵';
+    if (lower.includes('omori')) return '🌻';
+    if (lower.includes('oneshot')) return '💡';
+    if (lower.includes('redball')) return '🔴';
+    if (lower.includes('repo')) return '📦';
+    if (lower.includes('riddleschool')) return '❓';
+    if (lower.includes('rooftop')) return '🎯';
+    if (lower.includes('silent')) return '🌫️';
+    if (lower.includes('silksong')) return '🪡';
+    if (lower.includes('snow')) return '❄️';
+    if (lower.includes('supa')) return '⛳';
+    if (lower.includes('taisei')) return '🎴';
+    if (lower.includes('theycomin')) return '👣';
+    if (lower.includes('tinyfishing')) return '🎣';
+    if (lower.includes('ultrakill')) return '🩸';
+    if (lower.includes('unfair')) return '💀';
+    if (lower.includes('volley')) return '🏐';
+    if (lower.includes('yume')) return '🌸';
+    return '🎮';
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      if (m === '"') return '&quot;';
+      if (m === "'") return '&#39;';
+      return m;
+    });
+  }
+
+  // --------------------------------------------------------------
+  // State
+  // --------------------------------------------------------------
+  let allGames = buildGameList();
+  let filteredGames = [...allGames];
+
+  const gamesContainer = document.getElementById('gamesContainer');
+  const downloadsContainer = document.getElementById('downloadsContainer');
+  const customFilesContainer = document.getElementById('customFilesContainer');
+  const searchInput = document.getElementById('searchInput');
+  const visibleSpan = document.getElementById('visibleCount');
+  const totalSpan = document.getElementById('totalCount');
+  const gameCountDisplay = document.getElementById('gameCountDisplay');
+  const searchBoxWrapper = document.getElementById('searchBoxWrapper');
+  const counterWrapper = document.getElementById('counterWrapper');
+  const uploadZone = document.getElementById('uploadZone');
+  const eagleClientsGrid = document.getElementById('eagleClientsGrid');
+  const downloadAllBtn = document.getElementById('downloadAllBtn');
+
+  function updateCounters() {
+    totalSpan.innerText = allGames.length;
+    gameCountDisplay.innerText = allGames.length;
+    visibleSpan.innerText = filteredGames.length;
+  }
+
+  function renderGames() {
+    if (filteredGames.length === 0) {
+      gamesContainer.innerHTML = `
+        <div class="empty-state">
+          <i class="fas fa-download" style="font-size: 3rem; opacity: 0.6;"></i>
+          <h3 style="margin: 1rem 0 0.5rem;">No games found</h3>
+          <p style="color: var(--text-sub);">Try a different search term.</p>
+        </div>
+      `;
+      updateCounters();
+      return;
+    }
+
+    let html = '';
+    for (const game of filteredGames) {
+      html += `
+        <div class="game-card">
+          <div class="card-header">
+            <div class="game-icon">${game.icon}</div>
+            <div class="game-title">${escapeHtml(game.name)}</div>
+          </div>
+          <div class="file-info">
+            <i class="fas fa-file-code"></i>
+            <span style="font-family: monospace;">${escapeHtml(game.fileName)}</span>
+            <span class="file-size">${escapeHtml(game.size)}</span>
+          </div>
+          <button class="download-btn" onclick="downloadGame('${escapeHtml(game.downloadUrl)}', '${escapeHtml(game.fileName)}', '${escapeHtml(game.name)}', this)">
+            <i class="fas fa-download"></i> Download Game
+          </button>
+        </div>
+      `;
+    }
+    gamesContainer.innerHTML = html;
+    updateCounters();
+  }
+
+  function renderEagleClients() {
+    let html = '';
+    for (const client of EAGLER_CLIENTS) {
+      const url = "https://drive.google.com/uc?export=download&id=" + client.id;
+      const isWasm = client.name.toLowerCase().includes('wasm');
+      const icon = isWasm ? '⚡' : '📜';
+      html += `
+        <div class="eagle-client-card">
+          <div class="eagle-client-header">
+            <div class="eagle-client-icon">${icon}</div>
+            <div class="eagle-client-name">${escapeHtml(client.name)}</div>
+          </div>
+          <div class="eagle-client-meta">${escapeHtml(client.file)}</div>
+          <button class="eagle-client-btn" onclick="downloadEagleClient('${escapeHtml(client.name)}', '${escapeHtml(client.file)}', '${url}', this)">
+            <i class="fas fa-download"></i> Download
+          </button>
+        </div>
+      `;
+    }
+    eagleClientsGrid.innerHTML = html;
+  }
+
+  function downloadEagleClient(name, fileName, url, btnElement) {
+    const originalContent = btnElement.innerHTML;
+    btnElement.innerHTML = '<span class="spinner"></span>';
+    btnElement.disabled = true;
+
+    addDownload(name, fileName, url);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    window.open(url, '_blank');
+
+    setTimeout(() => {
+      btnElement.innerHTML = '<i class="fas fa-check"></i> Started!';
+      setTimeout(() => {
+        btnElement.innerHTML = originalContent;
+        btnElement.disabled = false;
+      }, 1500);
+    }, 700);
+  }
+
+  function downloadAllEaglercraft() {
+    if (!confirm('This will open ' + EAGLER_CLIENTS.length + ' download tabs. Your browser may ask to allow multiple downloads. Continue?')) {
+      return;
+    }
+
+    downloadAllBtn.disabled = true;
+    downloadAllBtn.innerHTML = '<span class="spinner"></span> Opening downloads...';
+
+    EAGLER_CLIENTS.forEach(client => {
+      const url = "https://drive.google.com/uc?export=download&id=" + client.id;
+      addDownload(client.name, client.file, url);
+    });
+
+    let i = 0;
+    function openNext() {
+      if (i >= EAGLER_CLIENTS.length) {
+        downloadAllBtn.innerHTML = '<i class="fas fa-check"></i> All downloads started!';
+        setTimeout(() => {
+          downloadAllBtn.innerHTML = '<i class="fas fa-cloud-download-alt"></i> Download All Eaglercraft Clients';
+          downloadAllBtn.disabled = false;
+        }, 2500);
+        return;
+      }
+      const client = EAGLER_CLIENTS[i];
+      const url = "https://drive.google.com/uc?export=download&id=" + client.id;
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = client.file;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      window.open(url, '_blank');
+
+      i++;
+      setTimeout(openNext, 400);
+    }
+    openNext();
+  }
+
+  // --------------------------------------------------------------
+  // Downloads storage
+  // --------------------------------------------------------------
+  const STORAGE_KEY = 'unblockable_games_downloads';
+
+  function getDownloads() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+    catch (e) { return []; }
+  }
+
+  function saveDownloads(list) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  }
+
+  function addDownload(name, fileName, url) {
+    const downloads = getDownloads();
+    if (downloads.some(d => d.fileName === fileName)) return;
+    downloads.push({ name, fileName, url, date: Date.now() });
+    saveDownloads(downloads);
+  }
+
+  function removeDownload(fileName) {
+    const downloads = getDownloads().filter(d => d.fileName !== fileName);
+    saveDownloads(downloads);
+    renderDownloads();
+  }
+
+  function renderDownloads() {
+    const downloads = getDownloads();
+
+    if (downloads.length === 0) {
+      downloadsContainer.innerHTML = `
+        <div class="empty-state">
+          <i class="fas fa-folder-open" style="font-size: 3rem; opacity: 0.6;"></i>
+          <h3 style="margin: 1rem 0 0.5rem;">No downloaded games yet</h3>
+          <p style="color: var(--text-sub);">Go to the "Games" or "Eaglercraft" tab and click "Download" on a game — it will appear here.</p>
+        </div>
+      `;
+      return;
+    }
+
+    let html = '';
+    for (const game of downloads) {
+      const icon = getGameIcon(game.name, game.fileName);
+      html += `
+        <div class="game-card">
+          <div class="card-header">
+            <div class="game-icon">${icon}</div>
+            <div class="game-title">${escapeHtml(game.name)}</div>
+          </div>
+          <div class="file-info">
+            <i class="fas fa-file-code"></i>
+            <span style="font-family: monospace;">${escapeHtml(game.fileName)}</span>
+          </div>
+          <button class="delete-btn" onclick="removeDownload('${escapeHtml(game.fileName)}')">
+            <i class="fas fa-trash"></i> Remove
+          </button>
+        </div>
+      `;
+    }
+    downloadsContainer.innerHTML = html;
+  }
+
+  // --------------------------------------------------------------
+  // Custom Files
+  // --------------------------------------------------------------
+  const CUSTOM_FILES_KEY = 'unblockable_custom_files';
+  const MAX_FILE_SIZE = 1.5 * 1024 * 1024;
+
+  function getCustomFiles() {
+    try { return JSON.parse(localStorage.getItem(CUSTOM_FILES_KEY) || '[]'); }
+    catch (e) { return []; }
+  }
+
+  function saveCustomFiles(list) {
+    try {
+      localStorage.setItem(CUSTOM_FILES_KEY, JSON.stringify(list));
+      return true;
+    } catch (e) {
+      alert('Storage full! Please remove some custom files first.');
+      return false;
+    }
+  }
+
+  function handleFileSelect(event) {
+    const files = event.target.files;
+    if (!files || files.length === 0) return;
+    processFiles(Array.from(files));
+    event.target.value = '';
+  }
+
+  function processFiles(files) {
+    if (!files || files.length === 0) return;
+
+    const existing = getCustomFiles();
+    const existingNames = new Set(existing.map(f => f.name));
+
+    let added = 0;
+    let skipped = 0;
+    const reads = [];
+
+    files.forEach(file => {
+      if (file.size > MAX_FILE_SIZE) { skipped++; return; }
+      if (existingNames.has(file.name)) { skipped++; return; }
+
+      reads.push(new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          existing.push({
+            name: file.name,
+            type: file.type || guessMime(file.name),
+            size: file.size,
+            data: e.target.result,
+            date: Date.now()
+          });
+          existingNames.add(file.name);
+          added++;
+          resolve();
+        };
+        reader.onerror = () => { skipped++; resolve(); };
+        reader.readAsDataURL(file);
+      }));
+    });
+
+    Promise.all(reads).then(() => {
+      if (added > 0) {
+        saveCustomFiles(existing);
+        renderCustomFiles();
+      }
+      if (added > 0 || skipped > 0) {
+        showToast(`✅ Uploaded ${added} file(s)${skipped > 0 ? `, skipped ${skipped}` : ''}`);
+      }
+    });
+  }
+
+  function guessMime(name) {
+    const ext = name.split('.').pop().toLowerCase();
+    const map = {
+      html: 'text/html', htm: 'text/html',
+      gif: 'image/gif', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg',
+      webp: 'image/webp', svg: 'image/svg+xml', bmp: 'image/bmp',
+      mp4: 'video/mp4', webm: 'video/webm', ogg: 'video/ogg', mov: 'video/quicktime',
+      mp3: 'audio/mpeg', wav: 'audio/wav',
+      zip: 'application/zip', js: 'text/javascript', css: 'text/css', json: 'application/json'
+    };
+    return map[ext] || 'application/octet-stream';
+  }
+
+  function showToast(message) {
+    const toast = document.createElement('div');
+    toast.textContent = message;
+    toast.style.cssText = `
+      position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      background: rgba(30, 41, 59, 0.95); color: white; padding: 0.8rem 1.5rem;
+      border-radius: 40px; border: 1px solid #3b82f6; font-size: 0.85rem;
+      z-index: 100001; box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      animation: toastIn 0.3s ease;
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transition = 'opacity 0.3s';
+      setTimeout(() => toast.remove(), 300);
+    }, 2500);
+  }
+
+  function renderCustomFiles() {
+    const files = getCustomFiles();
+
+    if (files.length === 0) {
+      customFilesContainer.innerHTML = `
+        <div class="empty-state">
+          <i class="fas fa-cloud-upload-alt" style="font-size: 3rem; opacity: 0.6;"></i>
+          <h3 style="margin: 1rem 0 0.5rem;">No custom files yet</h3>
+          <p style="color: var(--text-sub);">Upload a game file above — it will be saved locally in your browser.</p>
+        </div>
+      `;
+      return;
+    }
+
+    let html = '';
+    for (const file of files) {
+      const icon = getFileIcon(file.name, file.type);
+      const size = formatSize(file.size);
+      const type = (file.type || '').toLowerCase();
+      const isImage = type.startsWith('image/') || /\.(png|jpe?g|gif|webp|svg|bmp)$/i.test(file.name);
+      const isVideo = type.startsWith('video/') || /\.(mp4|webm|ogg|mov)$/i.test(file.name);
+
+      let preview = '';
+      if (isImage) {
+        preview = `<div class="file-preview"><img src="${file.data}" alt="${escapeHtml(file.name)}"></div>`;
+      } else if (isVideo) {
+        preview = `<div class="file-preview"><video src="${file.data}" muted></video></div>`;
+      }
+
+      html += `
+        <div class="custom-file-card">
+          ${preview}
+          <div class="card-header">
+            <div class="game-icon">${icon}</div>
+            <div class="game-title">${escapeHtml(file.name)}</div>
+          </div>
+          <div class="file-info">
+            <i class="fas fa-file"></i>
+            <span style="font-family: monospace;">${escapeHtml(file.name.split('.').pop().toUpperCase())}</span>
+            <span class="file-size">${size}</span>
+          </div>
+          <div class="file-actions">
+            <button class="open-btn" onclick="openCustomFile('${escapeHtml(file.name)}')">
+              <i class="fas fa-play"></i> Open
+            </button>
+            <button class="download-btn" onclick="downloadCustomFile('${escapeHtml(file.name)}', this)">
+              <i class="fas fa-download"></i> Save
+            </button>
+            <button class="delete-btn" onclick="removeCustomFile('${escapeHtml(file.name)}')">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+    customFilesContainer.innerHTML = html;
+  }
+
+  function getFileIcon(name, type) {
+    const lower = (name + ' ' + (type || '')).toLowerCase();
+    if (lower.includes('.html') || lower.includes('text/html')) return '🌐';
+    if (lower.includes('.zip') || lower.includes('zip')) return '📦';
+    if (lower.includes('.js') || lower.includes('javascript')) return '📜';
+    if (lower.includes('.css')) return '🎨';
+    if (lower.includes('.png') || lower.includes('.jpg') || lower.includes('.jpeg') || lower.includes('.gif') || lower.includes('.webp') || lower.includes('image')) return '🖼️';
+    if (lower.includes('.mp3') || lower.includes('.wav') || lower.includes('audio')) return '🎵';
+    if (lower.includes('.mp4') || lower.includes('.webm') || lower.includes('video')) return '🎬';
+    if (lower.includes('.json')) return '📋';
+    return '📄';
+  }
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+  }
+
+  function openCustomFile(name) {
+    const files = getCustomFiles();
+    const file = files.find(f => f.name === name);
+    if (!file) { showToast('File not found'); return; }
+
+    const type = (file.type || guessMime(file.name)).toLowerCase();
+    const isHtml = type.includes('html') || /\.html?$/i.test(file.name);
+    const isImage = type.startsWith('image/') || /\.(png|jpe?g|gif|webp|svg|bmp)$/i.test(file.name);
+    const isVideo = type.startsWith('video/') || /\.(mp4|webm|ogg|mov)$/i.test(file.name);
+
+    const overlay = document.createElement('div');
+    overlay.className = 'viewer-overlay';
+
+    const header = document.createElement('div');
+    header.className = 'viewer-header';
+
+    const titleSpan = document.createElement('span');
+    titleSpan.className = 'title';
+    titleSpan.textContent = file.name;
+
+    const actions = document.createElement('div');
+    actions.className = 'viewer-actions';
+
+    const saveBtn = document.createElement('button');
+    saveBtn.className = 'vbtn';
+    saveBtn.innerHTML = '💾 Save';
+    saveBtn.onclick = () => {
+      const a = document.createElement('a');
+      a.href = file.data;
+      a.download = file.name;
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    };
+
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'vbtn close';
+    closeBtn.innerHTML = '✖';
+    closeBtn.onclick = () => {
+      document.body.removeChild(overlay);
+      document.body.style.overflow = '';
+    };
+
+    actions.appendChild(saveBtn);
+    actions.appendChild(closeBtn);
+    header.appendChild(titleSpan);
+    header.appendChild(actions);
+
+    const body = document.createElement('div');
+    body.className = 'viewer-body';
+
+    if (isHtml) {
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('sandbox', 'allow-scripts allow-modals allow-forms allow-popups allow-same-origin allow-downloads');
+      body.appendChild(iframe);
+      overlay.appendChild(header);
+      overlay.appendChild(body);
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+
+      try {
+        const parts = file.data.split(',');
+        const header = parts[0];
+        const isBase64 = header.includes('base64');
+        let htmlText = parts.slice(1).join(',');
+        if (isBase64) {
+          htmlText = atob(htmlText);
+        } else {
+          htmlText = decodeURIComponent(htmlText);
+        }
+
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        doc.open();
+        doc.write(htmlText);
+        doc.close();
+      } catch (err) {
+        body.innerHTML = `<div class="viewer-fallback">❌ Could not render HTML: ${escapeHtml(err.message)}</div>`;
+      }
+      return;
+    }
+
+    if (isImage) {
+      const img = document.createElement('img');
+      img.src = file.data;
+      img.alt = file.name;
+      body.appendChild(img);
+    } else if (isVideo) {
+      const video = document.createElement('video');
+      video.src = file.data;
+      video.controls = true;
+      video.autoplay = true;
+      body.appendChild(video);
+    } else {
+      try {
+        const parts = file.data.split(',');
+        const mimeMatch = parts[0].match(/:(.*?);/);
+        const mime = mimeMatch ? mimeMatch[1] : 'application/octet-stream';
+        const binary = atob(parts[1]);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+        const blob = new Blob([bytes], { type: mime });
+        const blobUrl = URL.createObjectURL(blob);
+        const iframe = document.createElement('iframe');
+        iframe.src = blobUrl;
+        body.appendChild(iframe);
+      } catch (err) {
+        body.innerHTML = `<div class="viewer-fallback">Cannot preview this file type. Use "💾 Save" to download it.</div>`;
+      }
+    }
+
+    overlay.appendChild(header);
+    overlay.appendChild(body);
+    document.body.appendChild(overlay);
+    document.body.style.overflow = 'hidden';
+  }
+
+  function downloadCustomFile(name, btnElement) {
+    const files = getCustomFiles();
+    const file = files.find(f => f.name === name);
+    if (!file) return;
+
+    const originalContent = btnElement.innerHTML;
+    btnElement.innerHTML = '<span class="spinner"></span>';
+    btnElement.disabled = true;
+
+    const a = document.createElement('a');
+    a.href = file.data;
+    a.download = file.name;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    setTimeout(() => {
+      btnElement.innerHTML = '<i class="fas fa-check"></i>';
+      setTimeout(() => {
+        btnElement.innerHTML = originalContent;
+        btnElement.disabled = false;
+      }, 1200);
+    }, 400);
+  }
+
+  function removeCustomFile(name) {
+    const files = getCustomFiles().filter(f => f.name !== name);
+    saveCustomFiles(files);
+    renderCustomFiles();
+  }
+
+  ['dragenter', 'dragover'].forEach(eventName => {
+    uploadZone.addEventListener(eventName, e => {
+      e.preventDefault();
+      e.stopPropagation();
+      uploadZone.classList.add('dragover');
+    });
+  });
+
+  ['dragleave', 'drop'].forEach(eventName => {
+    uploadZone.addEventListener(eventName, e => {
+      e.preventDefault();
+      e.stopPropagation();
+      uploadZone.classList.remove('dragover');
+    });
+  });
+
+  uploadZone.addEventListener('drop', e => {
+    const files = e.dataTransfer.files;
+    if (files && files.length > 0) processFiles(Array.from(files));
+  });
+
+  // --------------------------------------------------------------
+  // Tab switching
+  // --------------------------------------------------------------
+  function switchTab(tabName, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tabName).classList.add('active');
+    if (btn) btn.classList.add('active');
+
+    if (tabName === 'eaglercraft' || tabName === 'downloads' || tabName === 'custom' || tabName === 'request') {
+      searchBoxWrapper.style.display = 'none';
+      counterWrapper.style.display = 'none';
+    } else {
+      searchBoxWrapper.style.display = 'flex';
+      counterWrapper.style.display = 'block';
+    }
+
+    if (tabName === 'downloads') renderDownloads();
+    if (tabName === 'custom') renderCustomFiles();
+  }
+
+  function switchSubTab(subName, btn) {
+    document.querySelectorAll('.sub-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.sub-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('sub-' + subName).classList.add('active');
+    if (btn) btn.classList.add('active');
+  }
+
+  function switchCustomSubTab(subName, btn) {
+    document.querySelectorAll('#tab-custom .sub-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('#tab-custom .sub-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('custom-sub-' + subName).classList.add('active');
+    if (btn) btn.classList.add('active');
+    if (subName === 'runner') initRunner();
+  }
+
+  // --------------------------------------------------------------
+  // Download game from main library
+  // --------------------------------------------------------------
+  function downloadGame(url, fileName, gameName, btnElement) {
+    const originalContent = btnElement.innerHTML;
+    btnElement.innerHTML = '<span class="spinner"></span> Downloading...';
+    btnElement.disabled = true;
+    btnElement.style.opacity = '0.7';
+
+    addDownload(gameName, fileName, url);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    window.open(url, '_blank');
+
+    setTimeout(() => {
+      btnElement.innerHTML = '<i class="fas fa-check"></i> Download started!';
+      btnElement.style.background = 'linear-gradient(90deg, #22c55e, #16a34a)';
+      btnElement.disabled = false;
+      btnElement.style.opacity = '1';
+
+      setTimeout(() => {
+        btnElement.innerHTML = originalContent;
+        btnElement.style.background = '';
+        btnElement.disabled = false;
+      }, 3500);
+    }, 1200);
+  }
+
+  // --------------------------------------------------------------
+  // Filter
+  // --------------------------------------------------------------
+  function filterGames() {
+    const query = searchInput.value.trim().toLowerCase();
+    if (!query) {
+      filteredGames = [...allGames];
+    } else {
+      filteredGames = allGames.filter(game =>
+        game.name.toLowerCase().includes(query) ||
+        game.fileName.toLowerCase().includes(query)
+      );
+    }
+    renderGames();
+  }
+
+  searchInput.addEventListener('input', filterGames);
+
+  // ================================================================
+  // THEME TOGGLE
+  // ================================================================
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isLight = html.classList.contains('light');
+    const btn = document.getElementById('themeToggle');
+    if (isLight) {
+      html.classList.remove('light');
+      btn.textContent = '🌙 Dark';
+      try { localStorage.setItem('unblockable_theme', 'dark'); } catch (e) {}
+    } else {
+      html.classList.add('light');
+      btn.textContent = '☀️ Light';
+      try { localStorage.setItem('unblockable_theme', 'light'); } catch (e) {}
+    }
+  }
+
+  (function initTheme() {
+    const html = document.documentElement;
+    const btn = document.getElementById('themeToggle');
+    let saved = null;
+    try { saved = localStorage.getItem('unblockable_theme'); } catch (e) {}
+    if (saved === 'light') {
+      html.classList.add('light');
+      btn.textContent = '☀️ Light';
+    } else {
+      btn.textContent = '🌙 Dark';
+    }
+  })();
+
+  // ================================================================
+  // CODE RUNNER (from Notes app)
+  // ================================================================
+  const RUNNER_SNIPPETS = {
+    html: `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Page</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      margin: 0;
+      min-height: 100vh;
+    }
+    h1 { font-size: 2.2rem; margin-bottom: 12px; }
+    p { font-size: 1.05rem; opacity: .95; margin-bottom: 20px; }
+    button {
+      background: #ffffff;
+      color: #764ba2;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+    #out { margin-top: 24px; font-size: 1.1rem; font-weight: 600; min-height: 24px; }
+    .card {
+      background: rgba(255,255,255,.15);
+      border-radius: 16px;
+      padding: 20px;
+      display: inline-block;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌐 Hello from HTML!</h1>
+  <p>This whole page is rendered live inside the iframe.</p>
+  <div class="card">
+    <button onclick="greet()">Click me</button>
+    <div id="out"></div>
+  </div>
+  <script>
+    let count = 0;
+    function greet() {
+      count++;
+      document.getElementById('out').textContent =
+        'You clicked ' + count + ' time' + (count === 1 ? '' : 's') + '! 🎉';
+    }
+  <\/script>
+</body>
+</html>
+`,
+    js: `// ✨ JavaScript — runs for real
+console.log("Hello from JavaScript!");
+
+const langs = ["HTML","JS","Python","JSON","XML","Markdown"];
+console.log("Real languages in this file:", langs.length);
+
+const squares = [];
+for (let i = 1; i <= 6; i++) squares.push(i*i);
+
+const sum = squares.reduce((a,b) => a+b, 0);
+console.log("squares:", JSON.stringify(squares));
+console.log("sum    =", sum);
+console.log("2 + 3  =", 2 + 3);
+`,
+    py: `# 🐍 Python — runs for real via Pyodide
+import sys, math
+
+def greet(name):
+    return f"Hello, {name}!"
+
+def fib(n):
+    a, b = 0, 1
+    out = []
+    for _ in range(n):
+        out.append(a)
+        a, b = b, a + b
+    return out
+
+print(greet("world"))
+print("pi =", round(math.pi, 6))
+print("fib(10):", fib(10))
+print("squares:", [x*x for x in range(1, 8)])
+print("sum     :", sum(x*x for x in range(1, 8)))
+`,
+    json: `{
+  "language": "JSON",
+  "real": true,
+  "inOneFile": true,
+  "features": ["notes", "runner", "autosave"],
+  "nested": {
+    "a": [1, 2, 3, 4, 5],
+    "b": { "ok": true, "pi": 3.14159 }
+  }
+}
+`,
+    xml: `<?xml version="1.0" encoding="UTF-8"?>
+<blob>
+  <language name="HTML"     real="true"/>
+  <language name="JS"       real="true"/>
+  <language name="Python"   real="true"/>
+  <language name="JSON"     real="true"/>
+  <language name="XML"      real="true"/>
+  <language name="Markdown" real="true"/>
+  <meta count="6" file="notes.html"/>
+</blob>
+`,
+    md: `# 📝 Markdown
+
+Rendered **live** by a tiny built-in parser.
+
+## Features
+- **bold** and _italic_
+- \`inline code\`
+- Lists and headings
+
+## Code
+\`\`\`js
+console.log("hi from a md fenced block");
+\`\`\`
+
+> Blockquotes work too.
+`
+  };
+
+  const RUNNER_META = {
+    html: { title:'HTML',       hint:'renders live in the output frame' },
+    js:   { title:'JavaScript', hint:'runs for real in your browser' },
+    py:   { title:'Python',     hint:'runs via Pyodide (first run loads ~10MB)' },
+    json: { title:'JSON',       hint:'validates and pretty-prints' },
+    xml:  { title:'XML',        hint:'parses with DOMParser' },
+    md:   { title:'Markdown',   hint:'rendered with a mini parser' }
+  };
+
+  let runnerCurrentLang = 'html';
+  let runnerInitialized = false;
+  let runnerPyodideReady = null;
+
+  async function runnerGetPyodide() {
+    if (runnerPyodideReady) return runnerPyodideReady;
+    if (!window.loadPyodide) {
+      await new Promise((res, rej) => {
+        const s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js';
+        s.onload = res;
+        s.onerror = () => rej(new Error('Could not load Pyodide'));
+        document.head.appendChild(s);
+      });
+    }
+    runnerPyodideReady = await window.loadPyodide({
+      indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.26.2/full/'
+    });
+    return runnerPyodideReady;
+  }
+
+  function runnerRunJS(code) {
+    const logs = [];
+    const fmt = (args) => args.map(a => {
+      if (typeof a === 'object' && a !== null) {
+        try { return JSON.stringify(a); } catch (e) { return String(a); }
+      }
+      return String(a);
+    }).join(' ');
+    const fakeConsole = {
+      log:   (...a) => logs.push(fmt(a)),
+      error: (...a) => logs.push('[error] ' + fmt(a)),
+      warn:  (...a) => logs.push('[warn] ' + fmt(a)),
+      info:  (...a) => logs.push('[info] ' + fmt(a))
+    };
+    try {
+      const fn = new Function('console', code);
+      fn(fakeConsole);
+      return logs.length ? logs.join('\n') : '(ran with no output)';
+    } catch (e) { return '❌ ' + e.message; }
+  }
+
+  function runnerRunJSON(code) {
+    try {
+      const obj = JSON.parse(code);
+      return '✅ valid JSON\n\n' + JSON.stringify(obj, null, 2);
+    } catch (e) { return '❌ invalid JSON: ' + e.message; }
+  }
+
+  function runnerRunXML(code) {
+    try {
+      const doc = new DOMParser().parseFromString(code, 'application/xml');
+      const err = doc.querySelector('parsererror');
+      if (err) return '❌ invalid XML: ' + err.textContent.split('\n')[0];
+      const root = doc.documentElement;
+      const out = ['✅ valid XML', '', 'root: <' + root.tagName + '>'];
+      const walk = (el, depth) => {
+        for (const child of el.children) {
+          out.push('  '.repeat(depth) + '↳ <' + child.tagName + '>');
+          for (const a of child.attributes) {
+            out.push('  '.repeat(depth + 1) + '@' + a.name + ' = "' + a.value + '"');
+          }
+          walk(child, depth + 1);
+        }
+      };
+      walk(root, 1);
+      return out.join('\n');
+    } catch (e) { return '❌ ' + e.message; }
+  }
+
+  function runnerRenderMarkdown(md) {
+    let html = md;
+    html = html.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    html = html.replace(/```(\w*)\n([\s\S]*?)```/g, (_, lang, code) =>
+      '<pre style="background:rgba(127,127,127,.15);padding:.5rem;border-radius:5px;overflow:auto;font-family:Consolas,monospace;font-size:12px;">' +
+      code.replace(/</g,'&lt;') + '</pre>');
+    html = html.replace(/^### (.*)$/gm, '<h3>$1</h3>');
+    html = html.replace(/^## (.*)$/gm,  '<h2>$1</h2>');
+    html = html.replace(/^# (.*)$/gm,   '<h1>$1</h1>');
+    html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/_(.+?)_/g,       '<em>$1</em>');
+    html = html.replace(/`([^`]+)`/g,     '<code>$1</code>');
+    html = html.replace(/^> (.*)$/gm, '<blockquote style="border-left:3px solid #3b82f6;padding-left:.6rem;opacity:.7;margin:.4rem 0;">$1</blockquote>');
+    html = html.replace(/^- (.*)$/gm, '<li>$1</li>');
+    html = html.replace(/(<li>.*<\/li>\n?)+/g, m => '<ul>' + m + '</ul>');
+    html = html.split(/\n{2,}/).map(p => {
+      if (/^\s*<(h\d|ul|pre|blockquote)/.test(p)) return p;
+      return '<p>' + p.replace(/\n/g, '<br>') + '</p>';
+    }).join('\n');
+    return '<div style="color:var(--text);font-family:inherit;padding:0;">' + html + '</div>';
+  }
+
+  async function runnerExecute(code, lang) {
+    if (lang === 'html') return { html: code };
+    if (lang === 'js') {
+      const r = runnerRunJS(code);
+      return { text: r, error: r.startsWith('❌') };
+    }
+    if (lang === 'py') {
+      try {
+        const py = await runnerGetPyodide();
+        const captured = [];
+        py.setStdout({ batched: s => captured.push(s) });
+        py.setStderr({ batched: s => captured.push(s) });
+        await py.runPythonAsync(code);
+        const r = captured.join('') || '(ran with no output)';
+        return { text: r };
+      } catch (e) {
+        return { text: '❌ ' + (e.message || e), error: true };
+      }
+    }
+    if (lang === 'json') return { text: runnerRunJSON(code) };
+    if (lang === 'xml')  return { text: runnerRunXML(code) };
+    if (lang === 'md')   return { html: runnerRenderMarkdown(code) };
+    return { text: '(unknown language)' };
+  }
+
+  function runnerShowText() {
+    const out = document.getElementById('runnerOutput');
+    const preview = document.getElementById('runnerHtmlPreview');
+    out.style.display = '';
+    preview.classList.remove('active');
+    preview.style.display = 'none';
+  }
+
+  function runnerShowHtml() {
+    const out = document.getElementById('runnerOutput');
+    const preview = document.getElementById('runnerHtmlPreview');
+    out.style.display = 'none';
+    preview.style.display = 'block';
+    preview.classList.add('active');
+  }
+
+  function runnerSetText(text, isError) {
+    runnerShowText();
+    const out = document.getElementById('runnerOutput');
+    out.innerHTML = '';
+    out.textContent = text;
+    out.classList.toggle('error', !!isError);
+    out.classList.toggle('empty', !text);
+  }
+
+  function runnerSetHTML(html) {
+    runnerShowText();
+    const out = document.getElementById('runnerOutput');
+    out.innerHTML = html;
+    out.classList.remove('error');
+    out.classList.remove('empty');
+  }
+
+  function runnerLoadSnippet(lang) {
+    document.getElementById('runnerCodeEditor').value = RUNNER_SNIPPETS[lang];
+    document.getElementById('runnerCodeTitle').textContent = RUNNER_META[lang].title;
+    document.getElementById('runnerLangHint').textContent = RUNNER_META[lang].hint;
+    document.getElementById('runnerHint').textContent = RUNNER_META[lang].hint;
+
+    if (lang === 'html') {
+      const preview = document.getElementById('runnerHtmlPreview');
+      runnerShowHtml();
+      const doc = preview.contentDocument || preview.contentWindow.document;
+      doc.open();
+      doc.write(RUNNER_SNIPPETS.html);
+      doc.close();
+    } else {
+      runnerSetText('Press ▶ Run to execute');
+      document.getElementById('runnerRunTime').textContent = '';
+    }
+  }
+
+  function runnerSelectTab(lang) {
+    runnerCurrentLang = lang;
+    document.querySelectorAll('.runner-tab').forEach(t => t.classList.toggle('active', t.dataset.lang === lang));
+    runnerLoadSnippet(lang);
+  }
+
+  function initRunner() {
+    if (runnerInitialized) return;
+    runnerInitialized = true;
+
+    document.getElementById('runnerTabs').addEventListener('click', e => {
+      const btn = e.target.closest('.runner-tab');
+      if (!btn) return;
+      runnerSelectTab(btn.dataset.lang);
+    });
+
+    document.getElementById('runnerResetBtn').addEventListener('click', () => {
+      if (!confirm('Reset this snippet to its default?')) return;
+      runnerLoadSnippet(runnerCurrentLang);
+    });
+
+    document.getElementById('runnerRunBtn').addEventListener('click', async () => {
+      const code = document.getElementById('runnerCodeEditor').value;
+      const lang = runnerCurrentLang;
+      const t0 = performance.now();
+      const btn = document.getElementById('runnerRunBtn');
+      btn.disabled = true;
+      document.getElementById('runnerRunTime').textContent = '';
+
+      try {
+        if (lang === 'html') {
+          const preview = document.getElementById('runnerHtmlPreview');
+          runnerShowHtml();
+          const doc = preview.contentDocument || preview.contentWindow.document;
+          doc.open();
+          doc.write(code);
+          doc.close();
+          document.getElementById('runnerRunTime').textContent = (performance.now() - t0).toFixed(0) + ' ms';
+          btn.disabled = false;
+          return;
+        }
+
+        runnerSetText('Running…');
+        const result = await runnerExecute(code, lang);
+        if (result.html !== undefined) {
+          runnerSetHTML(result.html);
+        } else {
+          runnerSetText(result.text, !!result.error);
+        }
+        document.getElementById('runnerRunTime').textContent = (performance.now() - t0).toFixed(0) + ' ms';
+      } catch (e) {
+        runnerSetText('❌ ' + e.message, true);
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    runnerSelectTab('html');
+  }
+
+  // Initial render
+  renderGames();
+  renderEagleClients();
+  renderDownloads();
+  renderCustomFiles();
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</body>
+</html>
